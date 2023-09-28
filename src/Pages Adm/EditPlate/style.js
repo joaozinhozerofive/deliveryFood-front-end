@@ -66,7 +66,8 @@ p{
     
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
     text-align: left;
 
     textarea{
