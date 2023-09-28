@@ -10,8 +10,10 @@ import { Meals } from "../../components/Meals";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/auth";
 
 export function Home(){
+    const {isAdmin} = useAuth();
     const navigation = useNavigate()
     const [search, setSearch] = useState("");
     const [dishes, setDishes] = useState([]);
@@ -19,7 +21,7 @@ export function Home(){
     const [drinkCategory, setDrinkCategory] = useState([]);
     const [dessertCategory, setDessertCategory] = useState([]);
 
-    console.log(mealCategory)
+    console.log(isAdmin)
     
     useEffect(() => {
         async function fetchDishes(){
