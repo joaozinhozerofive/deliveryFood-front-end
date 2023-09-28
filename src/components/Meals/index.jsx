@@ -14,7 +14,7 @@ import { api } from "../../services/api";
 
 export function Meals ({plates, ...rest}) {
     const navigation = useNavigate();
-    const {isAdmin} = useAuth();
+    const {isAdmin, user} = useAuth();
 
 
      
@@ -24,6 +24,8 @@ export function Meals ({plates, ...rest}) {
     function handleEdit(id) {
       navigation(`/edit/${id}`);
   }
+
+  console.log({user})
    
    
 
