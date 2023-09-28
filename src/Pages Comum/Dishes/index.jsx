@@ -23,6 +23,8 @@ export function Dishes(){
     const navigation = useNavigate();
     const params = useParams();
 
+    console.log(image)
+
 
 
 
