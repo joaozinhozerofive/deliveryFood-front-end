@@ -196,11 +196,11 @@ img{
                 margin-right: 12rem;
 
                 >h1{
-                 font-size: 1.8rem;
+                 font-size: 1.7rem;
                 } 
 
                 >p{
-                    font-size: 0.7rem;
+                    font-size: 0.5rem;
                 }
 
             }
