@@ -130,7 +130,7 @@ label{
 }
 
 @media (max-width: 1000px){
-.ingredients{
+#ingredients{
   display: flex;
   flex-wrap: wrap;
   }
