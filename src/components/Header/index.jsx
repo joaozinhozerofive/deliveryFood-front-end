@@ -28,7 +28,7 @@ export function Header({search}){
         <Container
         search = {search}
         >
-            {isAdmin === 0 ? 
+            {isAdmin === 1 ?? 
              <header>
             <div 
                 onClick={() => navigation("/menu")}
