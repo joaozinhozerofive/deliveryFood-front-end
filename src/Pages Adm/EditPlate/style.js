@@ -66,9 +66,10 @@ p{
     
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     text-align: left;
+
+    
 
     textarea{
         background-color: ${({theme}) => theme.COLORS.BACKGROUND_600};
@@ -193,6 +194,14 @@ export const Page = styled.main`
     } 
     }
     
+}
+@media (max-width: 1000px){
+.ingredients{
+  display: flex;
+  flex-wrap: wrap;
+}
+    .tags{
+    flex: 0 0 calc(33.33% - 2rem);
 }
 `
 
