@@ -93,6 +93,7 @@ p{
         display: flex;
         gap: 1rem;
         padding: 0.8rem;
+        flex-wrap: wrap;
         width: 100%;
     }
     }
