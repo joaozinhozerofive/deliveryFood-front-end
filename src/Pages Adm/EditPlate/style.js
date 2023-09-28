@@ -136,6 +136,7 @@ label{
   flex-wrap: wrap;
   }
 }
+}
 
 `
 

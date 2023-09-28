@@ -119,6 +119,7 @@ label{
   flex-wrap: wrap;
   }
 }
+}
 
 `
 
