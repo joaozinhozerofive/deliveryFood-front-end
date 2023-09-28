@@ -94,6 +94,7 @@ p{
         gap: 1rem;
         padding: 0.8rem;
         flex-wrap: wrap;
+        flex-direction: row;
         width: 100%;
     }
     }
