@@ -37,20 +37,6 @@ export function Meals ({plates, ...rest}) {
         {...rest}>
 
             {isAdmin === 1 ?  
-            
-            (plates && plates.map(plate => (
-            <div key={String(plate.plate_id)} className="mealsActive">
-                <img onClick={() => handleEdit(plate.plate_id)}  id="edit"  src={buttonEdit} alt="coração favoritos" />
-                <img  onClick={() => handleDetails(plate.plate_id)} id="snack" src={`${api.defaults.baseURL}/files/${plate.img}`} alt="imagem do prato " />
-                <h1 id="snackName">{`${plate.name} >` }</h1>
-                <p>{`${plate.description}`}</p>
-                <h2>{`R$ ${plate.price}`}</h2>
-                
-               </div>)))
-
-
-             :
-             
              (
                 plates && plates.map(plate => (
              <div key={plate.id} className="mealsActive">
@@ -72,8 +58,22 @@ export function Meals ({plates, ...rest}) {
                     
                 </div>
 
+                :
 
             </div>))) 
+            
+            (plates && plates.map(plate => (
+            <div key={String(plate.plate_id)} className="mealsActive">
+                <img onClick={() => handleEdit(plate.plate_id)}  id="edit"  src={buttonEdit} alt="coração favoritos" />
+                <img  onClick={() => handleDetails(plate.plate_id)} id="snack" src={`${api.defaults.baseURL}/files/${plate.img}`} alt="imagem do prato " />
+                <h1 id="snackName">{`${plate.name} >` }</h1>
+                <p>{`${plate.description}`}</p>
+                <h2>{`R$ ${plate.price}`}</h2>
+                
+               </div>)))
+
+
+             
             }
             
         </Container>
