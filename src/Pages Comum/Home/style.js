@@ -109,7 +109,7 @@ export const Page = styled.div`
         @media (max-width: 1229px){
             overflow-x: hidden;
             padding-right: 2rem;
-            padding-left: 4rem;
+            padding-left: 2rem;
             #buttonBack{
                 display: none;
             }

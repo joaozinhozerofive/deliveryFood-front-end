@@ -14,7 +14,7 @@ import { api } from "../../services/api";
 
 export function Meals ({plates, ...rest}) {
     const navigation = useNavigate();
-    const {isAdmin} = useAuth();
+    const {isAdmin, user} = useAuth();
 
 
      
@@ -24,6 +24,7 @@ export function Meals ({plates, ...rest}) {
     function handleEdit(id) {
       navigation(`/edit/${id}`);
   }
+
    
    
 
@@ -35,8 +36,8 @@ export function Meals ({plates, ...rest}) {
         plates = {plates}
         {...rest}>
 
-            {isAdmin === 0 ?  
-            
+            {isAdmin === 1 ?  
+
             (plates && plates.map(plate => (
             <div key={String(plate.plate_id)} className="mealsActive">
                 <img onClick={() => handleEdit(plate.plate_id)}  id="edit"  src={buttonEdit} alt="coração favoritos" />
@@ -46,10 +47,7 @@ export function Meals ({plates, ...rest}) {
                 <h2>{`R$ ${plate.price}`}</h2>
                 
                </div>)))
-
-
-             :
-             
+               :
              (
                 plates && plates.map(plate => (
              <div key={plate.id} className="mealsActive">

@@ -69,6 +69,8 @@ p{
     flex-direction: column;
     text-align: left;
 
+    
+
     textarea{
         background-color: ${({theme}) => theme.COLORS.BACKGROUND_600};
     }
@@ -126,6 +128,16 @@ label{
     
 }
 }
+
+@media (max-width: 650px){
+.ingredients{
+#ingredients{
+  display: flex;
+  flex-wrap: wrap;
+  }
+}
+}
+
 `
 
 
@@ -191,5 +203,6 @@ export const Page = styled.main`
     }
     
 }
+
 `
 
