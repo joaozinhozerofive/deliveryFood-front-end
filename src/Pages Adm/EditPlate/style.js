@@ -66,7 +66,6 @@ p{
     
     width: 100%;
     display: flex;
-    flex-direction: column;
     text-align: left;
 
     
@@ -95,8 +94,6 @@ p{
         display: flex;
         gap: 1rem;
         padding: 0.8rem;
-        flex-wrap: wrap;
-        flex-direction: row;
         width: 100%;
     }
     }
