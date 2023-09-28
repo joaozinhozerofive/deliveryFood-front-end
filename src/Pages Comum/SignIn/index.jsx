@@ -30,7 +30,7 @@ export function SignIn(){
             <form>
                 <h1>Faça login</h1>
                 <div className="input-wrapper">
-                    <p>Emaillll</p>
+                    <p>Email</p>
                     <input
                     onChange={e => setEmail(e.target.value)}
                      type="text" 
