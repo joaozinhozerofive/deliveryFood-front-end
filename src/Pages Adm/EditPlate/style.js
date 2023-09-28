@@ -128,6 +128,12 @@ label{
     
 }
 }
+
+@media (max-width: 1000px){
+.ingredients{
+  display: flex;
+  flex-wrap: wrap;
+  }
 `
 
 
@@ -193,10 +199,6 @@ export const Page = styled.main`
     }
     
 }
-@media (max-width: 1000px){
-.ingredients{
-  display: flex;
-  flex-wrap: wrap;
-  }
+
 `
 
