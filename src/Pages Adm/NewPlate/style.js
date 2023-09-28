@@ -112,6 +112,14 @@ label{
        } 
 }
 
+@media (max-width: 650px){
+.ingredients{
+#ingredients{
+  display: flex;
+  flex-wrap: wrap;
+  }
+}
+
 `
 
 
