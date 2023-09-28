@@ -129,7 +129,7 @@ label{
 }
 }
 
-@media (max-width: 800px){
+@media (max-width: 650px){
 .ingredients{
 #ingredients{
   display: flex;
