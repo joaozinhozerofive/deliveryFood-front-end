@@ -196,9 +196,6 @@ export const Page = styled.main`
 .ingredients{
   display: flex;
   flex-wrap: wrap;
-}
-    .tags{
-    flex: 0 0 calc(33.33% - 2rem);
-}
+  }
 `
 
