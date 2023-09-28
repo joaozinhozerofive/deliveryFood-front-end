@@ -102,11 +102,11 @@ img{
             >.writing{
                 margin-left: 45rem;
                 >h1{
-                 font-size: 2.9rem;
+                 font-size: 2.5rem;
                 } 
 
                 >p{
-                    font-size: 1.8rem;
+                    font-size: 1.4rem;
                 }
 
             }
@@ -126,11 +126,11 @@ img{
                 margin-left: 34rem;
 
                 >h1{
-                 font-size: 2.5rem;
+                 font-size: 2.2rem;
                 } 
 
                 >p{
-                    font-size: 1.4rem;
+                    font-size: 1.1rem;
                 }
 
             }
@@ -148,11 +148,11 @@ img{
                 margin-left: 34rem;
 
                 >h1{
-                 font-size: 2.3rem;
+                 font-size: 2rem;
                 } 
 
                 >p{
-                    font-size: 1.4rem;
+                    font-size: 0.9rem;
                 }
 
             }
@@ -172,11 +172,11 @@ img{
                 margin-left: 28rem;
 
                 >h1{
-                 font-size: 2.3rem;
+                 font-size: 2rem;
                 } 
 
                 >p{
-                    font-size: 1.4rem;
+                    font-size: 0.9rem;
                 }
 
             }
@@ -200,7 +200,7 @@ img{
                 } 
 
                 >p{
-                    font-size: 1.2rem;
+                    font-size: 0.9rem;
                 }
 
             }
