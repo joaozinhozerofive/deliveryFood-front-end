@@ -58,10 +58,10 @@ export function Meals ({plates, ...rest}) {
                     
                 </div>
 
-                :
 
             </div>))) 
             
+            :
             (plates && plates.map(plate => (
             <div key={String(plate.plate_id)} className="mealsActive">
                 <img onClick={() => handleEdit(plate.plate_id)}  id="edit"  src={buttonEdit} alt="coração favoritos" />
@@ -71,6 +71,7 @@ export function Meals ({plates, ...rest}) {
                 <h2>{`R$ ${plate.price}`}</h2>
                 
                </div>)))
+
 
 
              
