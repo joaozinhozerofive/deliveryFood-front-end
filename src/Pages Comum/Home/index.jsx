@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
 
 export function Home(){
-    const {isAdmin} = useAuth();
+    const {isAdmin, user} = useAuth();
     const navigation = useNavigate()
     const [search, setSearch] = useState("");
     const [dishes, setDishes] = useState([]);
@@ -21,7 +21,8 @@ export function Home(){
     const [drinkCategory, setDrinkCategory] = useState([]);
     const [dessertCategory, setDessertCategory] = useState([]);
 
-    console.log({isAdmin})
+    console.log({user})
+
     
     useEffect(() => {
         async function fetchDishes(){

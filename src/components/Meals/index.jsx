@@ -25,7 +25,6 @@ export function Meals ({plates, ...rest}) {
       navigation(`/edit/${id}`);
   }
 
-  console.log({user})
    
    
 
