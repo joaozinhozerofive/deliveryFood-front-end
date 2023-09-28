@@ -27,11 +27,10 @@ export function SignIn(){
                 <img src={logoFood} alt="Imagem da logo" />
                 <h1>food explorer</h1>
             </div>
-
             <form>
                 <h1>Faça login</h1>
                 <div className="input-wrapper">
-                    <p>Email</p>
+                    <p>Emaillll</p>
                     <input
                     onChange={e => setEmail(e.target.value)}
                      type="text" 
