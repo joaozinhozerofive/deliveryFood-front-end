@@ -25,6 +25,9 @@ function AuthProvider ({ children }) {
 
             const isAdmin = user.admin
 
+            console.log("user:", user);
+            console.log("user.admin:", user.admin);
+
             localStorage.setItem("deliveryFood:user", JSON.stringify(user))
             localStorage.setItem("deliveryFood:token", token)
 
