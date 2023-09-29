@@ -14,7 +14,7 @@ import { api } from "../../services/api";
 
 export function Meals ({plates, ...rest}) {
     const navigation = useNavigate();
-    const {user} = useAuth();
+    const  user = localStorage.getItem("@deliveryFood:user")
 
 
      
