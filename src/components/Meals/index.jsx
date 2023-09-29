@@ -71,6 +71,7 @@ export function Meals ({plates, ...rest}) {
 
 
             </div>))) 
+
             }
             
         </Container>

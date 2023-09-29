@@ -21,8 +21,7 @@ export function Home(){
     const [drinkCategory, setDrinkCategory] = useState([]);
     const [dessertCategory, setDessertCategory] = useState([]);
 
-    console.log({userr})
-
+    console.log(mealCategory)
     
     useEffect(() => {
         async function fetchDishes(){
