@@ -28,7 +28,7 @@ export function Header({search}){
         <Container
         search = {search}
         >
-            {isAdmin === 1 ?? 
+            {isAdmin === 1 ? 
              <header>
             <div 
                 onClick={() => navigation("/menu")}
@@ -72,7 +72,9 @@ export function Header({search}){
         onClick={() => logOut()}
          id="logout" 
          src={buttonLogout} alt="Botão de logout" />
-        </header> : 
+        </header> 
+        
+        : 
 
         <header>
 

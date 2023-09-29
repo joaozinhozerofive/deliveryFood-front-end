@@ -14,7 +14,7 @@ import { api } from "../../services/api";
 
 export function Meals ({plates, ...rest}) {
     const navigation = useNavigate();
-    const {user, isAdmin} = useAuth();
+    const {isAdmin} = useAuth();
 
 
      
@@ -36,7 +36,7 @@ export function Meals ({plates, ...rest}) {
         plates = {plates}
         {...rest}>
 
-            {isAdmin === 1 ??  
+            {isAdmin === 1 ? 
 
             (plates && plates.map(plate => (
             <div key={String(plate.plate_id)} className="mealsActive">
@@ -48,6 +48,8 @@ export function Meals ({plates, ...rest}) {
                 
                </div>)))
                :
+            
+
              (
                 plates && plates.map(plate => (
              <div key={plate.id} className="mealsActive">
@@ -71,8 +73,8 @@ export function Meals ({plates, ...rest}) {
 
 
             </div>))) 
-
-            }
+}
+            
             
         </Container>
     )
