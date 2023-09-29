@@ -23,9 +23,9 @@ function AuthProvider ({ children }) {
             const {token, user} = response.data;
 
 
-            const isAdmin = user.admin
+            const isAdmin = user[0].admin
 
-            localStorage.setItem("deliveryFood:user", JSON.stringify({user}))
+            localStorage.setItem("deliveryFood:user", JSON.stringify(user))
             localStorage.setItem("deliveryFood:token", token)
 
             api.defaults.headers.common['Authorization'] = `Bearer ${token}`
