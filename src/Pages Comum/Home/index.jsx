@@ -13,13 +13,16 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
 
 export function Home(){
-    const {isAdmin, user} = useAuth();
+    const {user} = useAuth();
     const navigation = useNavigate()
     const [search, setSearch] = useState("");
     const [dishes, setDishes] = useState([]);
     const [mealCategory, setMealCategory] = useState([]);
     const [drinkCategory, setDrinkCategory] = useState([]);
     const [dessertCategory, setDessertCategory] = useState([]);
+
+    console.log("user:", user);
+    console.log("user.admin:", user.admin);
 
     
     
@@ -38,7 +41,7 @@ export function Home(){
               setDrinkCategory(drinkItems);
               setDishes(dishes)
 
-              console.log({user})
+              
         }
 
 
