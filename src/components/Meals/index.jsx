@@ -36,7 +36,7 @@ export function Meals ({plates, ...rest}) {
         plates = {plates}
         {...rest}>
 
-            {isAdmin === 1 ??  
+            {isAdmin === 1 ? 
 
             (plates && plates.map(plate => (
             <div key={String(plate.plate_id)} className="mealsActive">
