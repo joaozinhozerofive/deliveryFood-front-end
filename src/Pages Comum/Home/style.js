@@ -38,6 +38,7 @@ export const Page = styled.div`
     flex: 1;
     
     grid-area: page;
+    display: flex;
     padding: 0 8.4rem;
     overflow-y: auto;
     position: relative;
