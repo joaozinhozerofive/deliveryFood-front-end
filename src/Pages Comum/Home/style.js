@@ -39,9 +39,6 @@ export const Page = styled.div`
     
     grid-area: page;
     padding: 0 8.4rem;
-    display: flex;
-    flex-direction : column:
-    align-items: center;
     overflow-y: auto;
     position: relative;
 
