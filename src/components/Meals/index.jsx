@@ -38,7 +38,7 @@ export function Meals ({plates, ...rest}) {
 
             {isAdmin === 1 ? 
 
-            (plates && plates.map(plate => (
+            plates && plates.map(plate => (
             <div key={String(plate.plate_id)} className="mealsActive">
                 <img onClick={() => handleEdit(plate.plate_id)}  id="edit"  src={buttonEdit} alt="coração favoritos" />
                 <img  onClick={() => handleDetails(plate.plate_id)} id="snack" src={`${api.defaults.baseURL}/files/${plate.img}`} alt="imagem do prato " />
@@ -46,11 +46,11 @@ export function Meals ({plates, ...rest}) {
                 <p>{`${plate.description}`}</p>
                 <h2>{`R$ ${plate.price}`}</h2>
                 
-               </div>)))
+               </div>))
                :
             
 
-             (
+             
                 plates && plates.map(plate => (
              <div key={plate.id} className="mealsActive">
                 <img id="favorites"  src={favorites} alt="coração favoritos" />
@@ -72,7 +72,7 @@ export function Meals ({plates, ...rest}) {
                 </div>
 
 
-            </div>))) 
+            </div>))
 }
             
             
