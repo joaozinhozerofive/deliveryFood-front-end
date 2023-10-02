@@ -46,8 +46,6 @@ export function Meals ({plates, ...rest}) {
                 <div className="ingredients">
                 
                 </div>
-                
-
 
             </div>))}
             
