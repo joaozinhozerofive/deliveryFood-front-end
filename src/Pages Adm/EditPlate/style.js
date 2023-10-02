@@ -117,15 +117,6 @@ label{
 @media (max-width: 1229px){
     .name, .category, .ingredients, .price, .description{
         padding: 0.4rem;
-
-        #ingredients{
-            padding: 0.4rem;
-        }
-        
-        .tags{
-            font-size: 0.2rem;
-        }
-    
 }
 }
 
