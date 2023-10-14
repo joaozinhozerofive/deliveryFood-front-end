@@ -11,8 +11,10 @@ import hamburguer from "../../Assets/hamburguer.svg"
 import buttonLogout from "../../Assets/buttonlogout.svg"
 import buttonOrder from "../../Assets/buttonOrders.svg"
 import { useAuth } from "../../hooks/auth"
+import { useState } from "react"
 
 export function Header({search}){
+    const [loading, setLoading] = useState(false)
     const navigation = useNavigate();
     const {isAdmin} = useAuth();
     const {signOut} = useAuth()
@@ -28,26 +30,28 @@ export function Header({search}){
         <Container
         search = {search}
         >
-            {isAdmin === 1 ? 
+            {isAdmin ? 
              <header>
+
             <div 
                 onClick={() => navigation("/menu")}
                 className="hamburguer">
                 <img src={hamburguer} alt="hamburguer" />
             </div>
-        <div 
-        onClick={() => navigation("/")}
-        className="logo">
-        <img src={logoFood} alt="logoFood" />
-        <h1>food explorer</h1>
+        
+        <div className="logo" onClick={() => navigation("/")} >
+            <img src={logoFood} alt="logoFood" />
+            <div id="admin">
+            <h1>food explorer</h1>
+            <p>admin</p>
+            </div>
         </div>
 
-         <p>admin</p>
 
         <div className="input">
         <InputHeader
+        className = "input-header"
         onChange={search}
-        onClick={() => navigation("/")}
         type = "text"
         icon={FiSearch}
         placeholder = "Busque por pratos ou ingredientes"
@@ -58,13 +62,14 @@ export function Header({search}){
         <img 
         src={buttonOrder} alt="Botão de pedidos" />
         <Button
-        title={`${"01"}` }
+        title={`${"0"}` }
         />
         </div>
 
         <Button
+        isLoading = {loading}
         className = "cart"
-        onClick={() => navigation("/new")}
+        onClick={() => {navigation("/new")}}
         title={`Novo prato` }
         />
 
@@ -84,13 +89,17 @@ export function Header({search}){
                 <img src={hamburguer} alt="hamburguer" />
             </div>
 
-        <div onClick={() => navigation("/")}>
-        <img src={logoFood} alt="logoFood" />
-        <h1>food explorer</h1>
+            <div className="logo" onClick={() => navigation("/")} >
+            <img src={logoFood} alt="logoFood" />
+            <div id="admin">
+            <h1>food explorer</h1>
+            </div>
         </div>
+
 
         <div className="input">
         <InputHeader
+        className = "input-header"
         onChange={search}
         onClick={() => navigation("/")}
         type = "text"
@@ -108,16 +117,18 @@ export function Header({search}){
         </div>
 
         <Button
+        isLoading ={loading}
         className = "cart"
         icon={FiShoppingCart}
-        title={`Carrinho` }
+        title={`Carrinho ( 0 )` }
         />
 
         <img 
         onClick={() => signOut()}
         id="logout" 
         src={buttonLogout} alt="Botão de logout" />
-        </header>}
+        </header>
+        }
         
         
         </Container>

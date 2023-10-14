@@ -64,7 +64,7 @@ export function Home(){
 
         <div className="foods">
             {mealCategory.length > 0 ?
-                <h1>Refeição
+                <h1>Refeições
                 </h1>
                 :
                 ""

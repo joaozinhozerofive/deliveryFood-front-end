@@ -4,7 +4,6 @@ import styled from 'styled-components'
 export const Container = styled.footer`
 
     background-color: ${({theme}) => theme.COLORS.BACKGROUND_700};
-    width: 100%;
     height: 7.7rem;
     display: flex;
     flex-direction: row;

@@ -1,7 +1,9 @@
 import { Container } from "./style";
 import { FiX } from "react-icons/fi";
+import {FiSearch} from "react-icons/fi"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
+import { InputHeader } from "../../components/InputHeader";
 
 export function Menu({...rest}){
     const navigation = useNavigate();
@@ -12,11 +14,12 @@ export function Menu({...rest}){
         navigation("/")
 
     }
+
+
     return(
         <Container>
 
-            {isAdmin === 1 ? 
-    <>
+
     <header>
     <FiX
     onClick={() => navigation(-1)} 
@@ -24,35 +27,27 @@ export function Menu({...rest}){
     <h1>Menu</h1>
     </header>
     <main>
+        
+    <div className="input">
+        <InputHeader
+        type = "text"
+        icon={FiSearch}
+        placeholder = "Busque por pratos ou ingredientes"
+        />
+    </div>
     
-    <h2
-    onClick={() =>navigation("/new")}
-    >
-        Novo Prato</h2>
+    <h2 className={isAdmin ? "" : "hidden"} onClick={() =>navigation("/new")}>
+        Novo prato
+     </h2>   
+    <h2 className={isAdmin ? "hidden" : ""}>
+        Favoritos
+     </h2>   
+
     <h2
     onClick={() => logOut()}
     >Sair</h2>
     </main>
-    </>
      
-    :
-<>
-    <header>
-    <FiX
-    onClick={() => navigation("/")} 
-    />
-    <h1>Menu</h1>
-    </header>
-    <main>
-    <h2
-    onClick={() => signOut()}
-    >Sair</h2>
-    </main>
-    </>
-
-
-        }
-            
         </Container>
     )
 }

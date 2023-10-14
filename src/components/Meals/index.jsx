@@ -1,21 +1,28 @@
 import { Container } from "./style";  
 
-import imgButtonLess from "../../Assets/less.svg"    
-import imgButtonMore from "../../Assets/more.svg" 
+
 import favorites from "../../Assets/favorites.svg"
 import buttonEdit from "../../Assets/buttonEdit.svg"
+import { Includs } from "../Includs";
 
-import { Button } from "../Button";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
 import { api } from "../../services/api";
+
+import {register} from 'swiper/element/bundle'
+register()
+import 'swiper/css';
+import 'swiper/css/navigation'
+import 'swiper/css/scrollbar'
+import { SwiperSlide, Swiper } from "swiper/react";
+import { responsives } from "../../Configs";
+
 
 
 
 export function Meals ({plates, ...rest}) {
     const navigation = useNavigate();
     const {isAdmin} = useAuth();
-
 
      
     function handleDetails(id) {
@@ -36,43 +43,50 @@ export function Meals ({plates, ...rest}) {
         plates = {plates}
         {...rest}>
 
-            {isAdmin === 1 ? 
+            {!isAdmin ? 
+            <Swiper
+            slidesPerView = {window.matchMedia(responsives.laptopL).matches ? 4 : 2}
+            navigation
+            >
 
-            (plates && plates.map(plate => (
-            <div key={String(plate.plate_id)} className="mealsActive">
+            {plates && plates.map(plate => (
+             
+             <SwiperSlide key={String(plate.plate_id)} >
+            <div  className="mealsActive">
                 <img onClick={() => handleEdit(plate.plate_id)}  id="edit"  src={buttonEdit} alt="coração favoritos" />
                 <img  onClick={() => handleDetails(plate.plate_id)} id="snack" src={`${api.defaults.baseURL}/files/${plate.img}`} alt="imagem do prato " />
                 <h1 id="snackName">{`${plate.name} >` }</h1>
                 <p>{`${plate.description}`}</p>
                 <h2>{`R$ ${plate.price}`}</h2>
                 
-               </div>)))
+               </div>
+               </SwiperSlide>
+               ))}
+               </Swiper>
                :
             
 
              
-                plates && plates.map(plate => (
-             <div key={plate.id} className="mealsActive">
-                <img id="favorites"  src={favorites} alt="coração favoritos" />
-                <img onClick={() => handleDetails(plate.plate_id)} id="snack" src={`${api.defaults.baseURL}/files/${plate.img}`} alt="imagem do prato " />
-                <h1 onClick={() => handleDetails(plate.plate_id)} id="snackName">{`${plate.name} >` }</h1>
-                <p>{`${plate.description}`}</p>
-                <h2>{`R$ ${plate.price}`}</h2>
-                <div className="ingredients">
+               <Swiper
+               slidesPerView = {window.matchMedia(responsives.laptopL).matches ? 4 : 2}
+               navigation
+               >
+   
+               {plates && plates.map(plate => (
                 
-                </div>
-                <div id="includs">
-                    <img src={imgButtonLess} alt="botao de diminuir" />
-                    <h3>01</h3>
-                    <img src={imgButtonMore} alt="botao de incluir"  />
-                    <Button 
-                    title={"incluir"}
-                    />
-                    
-                </div>
-
-
-            </div>))
+                <SwiperSlide key={String(plate.plate_id)} >
+               <div  className="mealsActive">
+                   <img onClick={() => handleEdit(plate.plate_id)}  id="edit"  src={favorites} alt="coração favoritos" />
+                   <img  onClick={() => handleDetails(plate.plate_id)} id="snack" src={`${api.defaults.baseURL}/files/${plate.img}`} alt="imagem do prato " />
+                   <h1 id="snackName">{`${plate.name} >` }</h1>
+                   <p>{`${plate.description}`}</p>
+                   <h2>{`R$ ${plate.price}`}</h2>
+                   <Includs />
+                   
+                  </div>
+                  </SwiperSlide>
+                  ))}
+                  </Swiper>
 }
             
             

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { responsives } from '../../Configs';
 
 export const Container = styled.div`
 
@@ -9,11 +10,11 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         gap: 1.4rem;
-        padding: 1.6rem;
+        padding: 0.8rem;
         border-radius: 0.5rem;
         
         >input{
-        font-size: 1.6rem;
+        font-size: 1.2rem;
         width: 100%;
         background: transparent;
         color: ${({theme}) => theme.COLORS.WHITE};
@@ -21,10 +22,32 @@ export const Container = styled.div`
     }
 
         >svg{
-             margin-left: 10rem;
-             height: 2.4rem;
-             width: 2.4rem;
+             width: 2rem;
+             height: 2rem;
             }
         
     }
+
+    @media ${responsives.mobileM}{
+
+        >div{
+            >input{
+            font-size: 1.6rem;
+        }
+        }
+        
+    }
+    @media ${responsives.tablet}{
+
+        >div{
+            >input{
+            font-size: 2rem;
+        }
+        }
+        
+    }
+
+    
+
+
 `

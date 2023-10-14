@@ -24,43 +24,24 @@ animation: ${dataField} 1s cubic-bezier(0.70, 0.05, 0.55, 0.95);
     .home{
         width: 100%;
         display: grid;
-        grid-template-areas: 
-        "header"
-        "page"
-        "footer";
-
         position: relative;
     }
 `
 
 
 export const Page = styled.div`
-    flex: 1;
-    
-    grid-area: page;
-    padding: 0 8.4rem;
-    overflow-y: auto;
+    overflow-y: hidden;
     position: relative;
-
-   
-    
+    padding: 1rem;
     
     h1{
+        font-size: 2rem;
         font-family: 'Poppins', sans-serif;
-        font-weight: 500;
+        font-weight: 400;
         margin-top: 6.3rem;
     }
 
-    ::-webkit-scrollbar{
-        width: 20px;
-    }
-
-
-    ::-webkit-scrollbar-thumb{
-        background-color: black;
-        border-radius: 30px;
-    }
-
+    
     
     .content{
         position: relative;
@@ -94,46 +75,4 @@ export const Page = styled.div`
         
         
     }
-
-
-    @media (max-width: 1270px){
-
-        .main{
-            max-width: 100%;
-            
-        }
-        }
-
-
-
-        @media (max-width: 1229px){
-            overflow-x: hidden;
-            padding-right: 2rem;
-            padding-left: 2rem;
-            #buttonBack{
-                display: none;
-            }
-            #buttonNext{
-                display: none;
-            }
-        }
-        @media (max-width: 1051px){
-
-            .foods{
-                h1:first-child{
-                font-size: 2.5rem;
-            }
-            }
-            
-        }
-        @media (max-width: 900px){
-            .foods{
-                h1:first-child{
-                font-size: 2.2rem;
-            }
-            }
-            
-            
-        }
-
 `
