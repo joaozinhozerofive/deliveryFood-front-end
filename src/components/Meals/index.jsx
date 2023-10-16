@@ -32,12 +32,6 @@ export function Meals ({plates, ...rest}) {
       navigation(`/edit/${id}`);
   }
 
-   
-   
-
-
-
-
     return(
         <Container 
         plates = {plates}
@@ -45,7 +39,8 @@ export function Meals ({plates, ...rest}) {
 
             {!isAdmin ? 
             <Swiper
-            slidesPerView = {window.matchMedia(responsives.laptopL).matches ? 4 : 2}
+            spaceBetween={50}
+            slidesPerView = {5}
             navigation
             >
 
@@ -71,8 +66,8 @@ export function Meals ({plates, ...rest}) {
                slidesPerView = {window.matchMedia(responsives.laptopL).matches ? 4 : 2}
                navigation
                >
-   
                {plates && plates.map(plate => (
+   
                 
                 <SwiperSlide key={String(plate.plate_id)} >
                <div  className="mealsActive">

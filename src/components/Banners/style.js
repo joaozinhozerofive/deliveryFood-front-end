@@ -83,7 +83,7 @@ img{
     height: 15rem;
     img{
     width: 23rem;
-    left: -2.1rem;
+    left: -3.1rem;
 
 }
 
