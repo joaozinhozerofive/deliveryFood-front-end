@@ -21,7 +21,7 @@ export const Container = styled.div`
 
         >button{
             margin-top: 1rem;
-            width: 18rem;
+            width: 100%;
             padding: 0.8rem 2rem;
             font-family: 'Poppins', sans-serif;
         }

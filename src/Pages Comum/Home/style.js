@@ -1,4 +1,5 @@
 import styled, {keyframes} from 'styled-components'
+import { responsives } from '../../Configs';
 
 const dataField = keyframes`
   0% {
@@ -22,7 +23,7 @@ animation: ${dataField} 1s cubic-bezier(0.70, 0.05, 0.55, 0.95);
 
 
     .home{
-        width: 100%;
+        
         display: grid;
         position: relative;
     }
@@ -30,49 +31,62 @@ animation: ${dataField} 1s cubic-bezier(0.70, 0.05, 0.55, 0.95);
 
 
 export const Page = styled.div`
+    overflow-x: hidden;
     overflow-y: hidden;
     position: relative;
-    padding: 1rem;
     
-    h1{
-        font-size: 2rem;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 400;
-        margin-top: 6.3rem;
+    >.foods{
+      .category{
+          margin-left: 1rem;
+          font-size: 2rem;
+          font-family: 'Poppins', sans-serif;
+          font-weight: 400;
+          margin-top: 4rem;
+      }
+
     }
 
     
     
     .content{
         position: relative;
-        overflow-x: auto;
-
-
-
-        
-        
-
-
-    #buttonBack{
-        position: fixed;
-        top: 25rem;
-        z-index: 1000;
-    }
-    
-    #buttonNext{
-        position: fixed;
-        right: 10rem;
-        top: 48rem;
-        z-index: 1000
-    }
         margin-top: 2.5rem;
         display: flex;
-        gap: 2.7rem;
         width: 100%;
-
-
-       
-        
-        
     }
+
+    @media ${responsives.tablet}{
+      >.foods{
+      .category{
+          font-size: 2.5rem;
+      }
+
+    }
+    }
+
+    @media ${responsives.laptop}{
+      >.foods{
+      .category{
+          font-size: 3rem;
+      }
+
+    }
+      padding-left: 5rem;
+      padding-right: 2rem;
+    }
+    @media ${responsives.laptopL}{
+      padding-left: 12rem;
+      padding-right: 12rem;
+      >.foods{
+      .category{
+          font-size: 3.5rem;
+      }
+    }
+    @media ${responsives.desktop}{
+      padding-left: 14rem;
+      padding-right: 14rem;
+
+    }
+    }
+      
 `

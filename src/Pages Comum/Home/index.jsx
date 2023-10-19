@@ -64,7 +64,7 @@ export function Home(){
 
         <div className="foods">
             {mealCategory.length > 0 ?
-                <h1>Refeições
+                <h1  className="category">Refeições
                 </h1>
                 :
                 ""
@@ -79,7 +79,7 @@ export function Home(){
         </div>
         <div className="foods">
             {dessertCategory.length > 0 ?
-                <h1>
+                <h1 className="category">
                     Sobremesas
                 </h1>
                 :
@@ -96,7 +96,7 @@ export function Home(){
 
         <div className="foods">
             {drinkCategory.length > 0 ?
-                <h1>
+                <h1 className="category">
                     Bebidas
                 </h1>
                 :

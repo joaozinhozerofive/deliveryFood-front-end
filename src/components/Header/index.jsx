@@ -112,7 +112,7 @@ export function Header({search}){
         <img 
         src={buttonOrder} alt="Botão de pedidos" />
         <Button
-        title={`${"01"}` }
+        title={`${"1"}` }
         />
         </div>
 
