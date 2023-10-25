@@ -192,6 +192,7 @@ export function NewPlate(){
 
                     {ingredients && ingredients.map((ingredient, index) => 
                         <TagItem 
+                        className = 'tags'
                         key={String(index)}
                         onClick={() =>handleRemoveIngredient(ingredient)}
                         value={ingredient}
@@ -200,6 +201,7 @@ export function NewPlate(){
                         )}
 
                         <TagItem 
+                         className = 'tags'
                          isNew
                          value={newIngredient}
                          onChange = { e => setNewIngredient(e.target.value)}

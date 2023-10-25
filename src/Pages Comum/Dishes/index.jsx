@@ -1,13 +1,14 @@
 import { Container, Page } from "./style.js";
+
 import { Footer } from "../../components/Footer/index.jsx";
 import { Header } from "../../components/Header/index.jsx";
 import { Button } from "../../components/Button/index.jsx";
 import { ButtonText } from "../../components/ButtonText/index.jsx";
 import imgButtonBack from "../../Assets/buttonBack.svg"
-import imgDishes from "../../Assets/imagem-deliveryfood-prato.png"
 import imgButtonLess from "../../Assets/less.svg"     
 import imgButtonMore from "../../Assets/more.svg" 
 import { Ingredients } from "../../components/Ingredients/index.jsx";
+
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../hooks/auth.jsx";
 import { useEffect, useState } from "react";
@@ -19,11 +20,35 @@ export function Dishes(){
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
-    const {isAdmin} = useAuth();
+    const [count , setCount] = useState(Number(1));
+
+    const {user} = useAuth();
+
+    const isAdmin = user.admin;
+    
     const navigation = useNavigate();
     const params = useParams();
 
     console.log(image)
+
+    function increaseValue(){
+        if(count > 19 ){
+            return
+        }
+        setCount(count + 1)
+    }
+
+
+    function decreaseValue(){
+        if(count < 1 ){
+            return
+        }
+        setCount(count -1 )
+
+    }
+
+  
+  
 
 
 
@@ -54,73 +79,87 @@ export function Dishes(){
                 <img src={imgButtonBack}alt="botão de voltar" />
             <ButtonText 
             onClick={() => navigation(-1)}
-            title={"voltar"}
+            title={"voltar"} 
             />
             </div>
 
-{isAdmin === 1 ? 
+{isAdmin ? 
 
 
 
 
 <Page>
-<div className="indexSnack">
-    <img  id="snack" src={image} alt="Imagem do prato" />
+<main>
+    <div className="indexSnack">
+        <img  id="snack" src={image} alt="Imagem do prato" />
 
-</div>
-<div className="content">
-     <h1>{`${name} >` }</h1>
-        <p>{`${description}`} </p>
+    </div>
 
-        <div  className="ingredients">
-    {data.tags && data.tags.map(tag => 
-    <Ingredients
-            key={tag.id}
-            title={tag.name}
-     />
-     )}
-</div> 
+    <div className="content">
+        
+            <h1>{`${name} ` }</h1>
+            <p>{`${description}`} </p>
 
-<div id="includs">
-    <Button
-    onClick={() => navigation(`/edit/${params.plate_id}`)}
-    className = "editDish" 
-    title={"Editar prato"}
-/>
-</div>
-</div>
+            <div  className="ingredients">
+                {data.tags && data.tags.map(tag => 
+                <Ingredients 
+                        className ='tags'
+                        key={tag.id} 
+                        title={tag.name}  />
+
+                )}
+            </div> 
+
+            <div id="includs">
+                <Button
+                onClick={() => navigation(`/edit/${params.plate_id}`)}
+                className = "editDish" 
+                title={"Editar prato"}
+            />
+            </div>
+
+    </div>
+</main>
 </Page>  : 
 <Page>
 
-<div className="indexSnack">
-            <img id="snack" src={image} alt="Imagem do prato" />
+<main>
 
-</div>
+    <div className="indexSnack">
+                <img id="snack" src={image} alt="Imagem do prato" />
 
-<div className="content">
-             <h1>{`${name} >` }</h1>
+    </div>
+
+    <div className="content">
+
+                <h1>{`${name} ` }</h1>
                 <p>{`${description}`}</p>
-<div  className="ingredients">
-    {data.tags && data.tags.map(tag => 
-    <Ingredients
-            key={tag.id}
-            title={tag.name}
-     />
-     )}
-</div> 
 
-        
-    <div id="includs">
-        <img src={imgButtonLess} alt="botao de diminuir" />
-        <h3>01</h3>
-        <img src={imgButtonMore} alt="botao de incluir"  />
-        <Button 
-        onClick={() => navigation(-1)}
-        title={`incluir R$ ${price}`}
-        />
-        
+            <div  className="ingredients">
+                {data.tags && data.tags.map(tag => 
+                <Ingredients
+                        className ='tags'
+                        key={tag.id}
+                        title={tag.name}
+                />
+                )}
+            </div> 
+
+            
+            <div id="includs">
+                <img onClick={decreaseValue} src={imgButtonLess} alt="botao de diminuir" />
+                <h3>{count}</h3>
+                <img onClick={increaseValue} src={imgButtonMore} alt="botao de incluir"  />
+                <Button 
+                onClick={() => navigation(-1)}
+                title={  `R$ ${price}`}
+                />
+                
+            </div>
+
     </div>
-    </div>
+
+</main>
 </Page>
 }
             <Footer/>

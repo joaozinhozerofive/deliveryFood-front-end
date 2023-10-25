@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 import { api } from "../services/api";
 
@@ -24,8 +24,8 @@ function AuthProvider ({ children }) {
 
             const isAdmin = user.admin  
 
-            localStorage.setItem("deliveryFood:user", JSON.stringify(user))
-            localStorage.setItem("deliveryFood:token", token)
+            localStorage.setItem("@deliveryFood:user", JSON.stringify(user))
+            localStorage.setItem("@deliveryFood:token", token)
 
             api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
@@ -48,16 +48,28 @@ function AuthProvider ({ children }) {
             function signOut(){
 
 
-                localStorage.removeItem("deliveryFood:user")
-                localStorage.removeItem("deliveryFood:token")
+                localStorage.removeItem("@deliveryFood:user")
+                localStorage.removeItem("@deliveryFood:token")
 
 
                 setData({})
-
-
-
-                
             }
+
+
+            useEffect(() => {
+                const token = localStorage.getItem("@deliveryFood:token");
+                const user = localStorage.getItem("@deliveryFood:user");
+
+
+                if (token && user) {
+                  api.defaults.headers.authorization = `Bearer ${token}`;
+            
+                  setData({
+                    token,
+                    user: JSON.parse(user)
+                  });
+                }
+              }, []);
             
             return (
                 <AuthContext.Provider value={{

@@ -7,7 +7,9 @@ import { InputHeader } from "../../components/InputHeader";
 
 export function Menu({...rest}){
     const navigation = useNavigate();
-    const {isAdmin, signOut} = useAuth()
+    const {user, signOut} = useAuth()
+
+    const isAdmin = user.admin;
 
     function logOut(){
         signOut()

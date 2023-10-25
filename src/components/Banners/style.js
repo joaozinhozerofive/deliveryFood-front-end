@@ -3,6 +3,8 @@ import { responsives } from '../../Configs'
 
 export const Container = styled.div`
 
+    filter: drop-shadow(0px 0px 0.2rem ${({theme}) => theme.COLORS.HOVER});
+
         background: ${({theme}) => theme.COLORS.BACKGROUND_500};  
         color: ${({theme}) => theme.COLORS.WHITE} ;
         display: flex;
@@ -159,6 +161,8 @@ img{
 
 }
 @media ${responsives.laptop}{
+    filter: drop-shadow(0px 0px 0.5rem ${({theme}) => theme.COLORS.HOVER});
+
     height: 20rem;
     margin-top: 24rem;
 
@@ -183,6 +187,7 @@ img{
 }
 
 @media ${responsives.laptopL}{
+    justify-content: center;
     height: 25rem;
     margin-top: 23rem;
 

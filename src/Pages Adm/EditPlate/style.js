@@ -1,4 +1,5 @@
 import styled, {keyframes} from 'styled-components'
+import { responsives } from '../../Configs';
 
 const dataField = keyframes`
   0% {
@@ -15,36 +16,140 @@ const dataField = keyframes`
 `;
 
 export const Container = styled.div`
-
+padding: 0;
+max-width: 100%;
 animation: ${dataField} 1s cubic-bezier(0.70, 0.05, 0.55, 0.95);
-
-    
-    footer{
-        margin-top: 30.0rem;
-    }
-
 `
 
+export const Page = styled.main`
+    padding-top: 15rem;
+    padding-left: 15%;
+
+    .buttonBack{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+
+        >button{
+            font-weight: 400;
+            font-size: 2.5rem;
+        }
+        
+
+    }
+    >h1{
+        white-space: nowrap;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+        margin-top: 3.2rem;
+        font-size: 2.5rem;
+    }
+
+    .delete{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+        width: 100%;
+        button{
+            background-color: ${({theme}) => theme.COLORS.RED_700};
+            padding: 1rem;
+            
+        }
+
+        .buttonDelete{
+            background-color: ${({theme}) => theme.COLORS.BACKGROUND_600};
+            color: ${({theme}) => theme.COLORS.WHITE};
+            border-radius: 0.8rem;
+            white-space: nowrap;
+            padding: 1rem;
+        }
+    }
+    
+@media ${responsives.mobileL}{
+        .delete{
+            max-width: 90%;
+        }
+    }
+
+
+@media (min-width: 900px){
+    max-width: 100%;
+}
+
+
+@media ${responsives.laptopL}{
+    .buttonBack{
+            align-items: center;
+            gap: 2rem;
+        img{
+            width: 1.5rem;
+        }
+        >button{
+            font-size: 3.5rem;
+        }
+    }
+
+    
+
+    .delete{
+        flex-direction: row;
+        justify-content: end;
+        width: 100%;
+        button{
+            background-color: ${({theme}) => theme.COLORS.RED_700};
+            padding: 1.5rem;
+            font-size: 2rem;
+        }
+    }
+
+
+    @media ${responsives.desktop}{
+        margin-top: 8rem;
+            .buttonBack{
+            img{
+                width: 2rem;
+            }
+            >button{
+                font-size: 5rem;
+            }
+        }
+
+        h1{
+            font-size: 5rem;
+        }
+
+        .delete{
+        button{
+            padding: 2rem;
+            font-size: 2.5rem;
+        }
+    }
+
+
+
+        
+}}
+
+`
 export const Form = styled.form`
 
-display: flex;
-flex-direction: column;
-gap: 32px;
-
-
-
 p{
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         font-family: 'Roboto', sans-serif;
         font-weight: 400;
         color: ${({theme}) => theme.COLORS.LIGHT};
-        margin-bottom: 1.6rem;
+        margin-bottom: 1.4rem;
         margin-top: 1.6rem;
     }
 
 
 
-
+    .selectImg{
+        font-size: 1rem;
+    }
     #namePlate, #price{
 
      text-decoration: none;
@@ -56,9 +161,7 @@ p{
     }
 
 
-    #price{
-        width: 25.1rem;
-    }
+    
 
    
 
@@ -67,9 +170,10 @@ p{
     width: 100%;
     display: flex;
     flex-direction: column;
-    text-align: left;
 
-    
+    #ingredients{
+        flex-wrap: wrap
+    }
 
     textarea{
         background-color: ${({theme}) => theme.COLORS.BACKGROUND_600};
@@ -85,7 +189,7 @@ p{
         display: flex;
         align-items: center;
         gap: 1.2rem ;
-        padding: 1.6rem 3.2rem;
+        padding: 1.4rem 3rem;
         border-radius: 0.8rem;
     }
 
@@ -96,6 +200,9 @@ p{
         gap: 1rem;
         padding: 0.8rem;
         width: 100%;
+        .tags{
+            text-align: center;
+        }
     }
     }
 
@@ -113,87 +220,143 @@ label{
        } 
 }
 
-
-@media (max-width: 1229px){
-    .name, .category, .ingredients, .price, .description{
-        padding: 0.4rem;
-}
+@media ${responsives.mobileL}{
+    max-width: 90%;
 }
 
-@media (max-width: 650px){
-.ingredients{
-#ingredients{
-  display: flex;
-  flex-wrap: wrap;
-  }
+
+@media (min-width: 900px){
+    padding-left: -15rem;
+    
+    .ingredients{
+        >#ingredients{
+            flex-wrap: nowrap;
+            padding: 1rem;
+
+            .tags{
+                font-size: 1.2rem;
+            }
+        }
+
+    }
 }
-}
 
-`
+@media ${responsives.laptopL}{
+    .ingredients{
+        >#ingredients{
+            flex-wrap: nowrap;
+            padding: 1rem;
 
+            .tags{
+                font-size: 1.5rem;
+            }
 
+            .tags::placeholder{
+                font-size: 2.5rem;
+            }
+        }
 
-export const Page = styled.main`
-
-    position: relative;
-    padding: 15rem 12.2rem 0 12.2rem;
-
-    h1{
-        font-family: 'Poppins', sans-serif;
-        font-weight: 400;
-        margin-bottom: 3.2rem;
-        margin-top: 3.2rem;
+    }
+    p{
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        font-size: 2rem;
     }
 
-    .delete{
-        display: flex;
-        justify-content: end;
-        gap: 1rem;
-        align-items: center;
+    .selectImg{        
+        font-size: 2rem;
+        >label{
+        padding: 2rem 3.5rem;
+    }
+
+    }
+
+    
+    #namePlate, #price{
+        font-size: 2rem;
+        gap: 1.2rem ;
+        padding: 2rem 3.5rem;
+}
+
+.name, .category, .ingredients, .price, .description{
+font-size: 2rem;
+width: 100%;
+display: flex;
+flex-direction: column;
+
+textarea{
+    font-size: 2rem;
+   background-color: ${({theme}) => theme.COLORS.BACKGROUND_600};
+}
+
+#event-category{
+   padding: 2rem 3.5rem;
+}
+
+}
+
+}
+
+
+
+
+@media ${responsives.desktop}{
+    .ingredients{
+        >#ingredients{
+            flex-wrap: nowrap;
+            padding: 2rem;
+
+            .tags{
+                >button{
+                    width: 3rem;
+                }
+                font-size: 3rem;
+            }
+        }
+
+    }
+    p{
+        margin-bottom: 2.5rem;
         margin-top: 2.5rem;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 500;
-        
+        font-size: 2.5rem;
+    }
+
+    .selectImg{        
+        font-size: 2.5rem;
+        >label{
+        padding: 2.5rem 4rem;
+    }
+
+    }
+
     
-        button{
-            background-color: ${({theme}) => theme.COLORS.RED_700};
-            padding: 1rem;
-            
-        }
+    #namePlate, #price{
+        font-size: 2.5rem;
+        gap: 1.2rem ;
+        padding: 2.5rem 4rem;
+}
 
-        .buttonDelete{
-            background-color: ${({theme}) => theme.COLORS.BACKGROUND_600};
-            color: ${({theme}) => theme.COLORS.WHITE};
-            border-radius: 0.8rem;
-            padding: 1rem;
-        }
-    }
+.name, .category, .ingredients, .price, .description{
+font-size: 2.5rem;
+width: 100%;
+display: flex;
+flex-direction: column;
 
-    select{
-        width: 40rem;
-    }
-    .buttonBack{
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
+textarea{
+   padding: 2.5rem 4rem;
+   font-size: 2.5rem;
+   background-color: ${({theme}) => theme.COLORS.BACKGROUND_600};
+}
 
-
-@media (max-width: 1229px){
-    padding-left: 5rem;
-    padding-right: 5rem;
-
-
-    input{
-
-    }
-    .delete{
-       button{
-        width: 100%;
-    } 
-    }
-    
+#event-category{
+    font-size: 2rem;
+    padding: 2.5rem 4rem;
+}
+}
 }
 
 `
+
+
+
 

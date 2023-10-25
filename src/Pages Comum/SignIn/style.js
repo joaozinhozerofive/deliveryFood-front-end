@@ -1,4 +1,5 @@
 import styled, {keyframes} from 'styled-components'
+import { responsives } from '../../Configs';
 
 
 const LogoAppear = keyframes`
@@ -37,99 +38,100 @@ const InputField = keyframes`
 
 
 export const Container = styled.div`
-
-padding: 15.0rem 10.8rem 14.2rem 15.3rem;
-display: flex;
-align-items: center;
-justify-content: space-between;
-animation: ${fadeIn} 1s ease-in-out;
-
-form:hover{
-    border: 1px solid ${({theme}) => theme.COLORS.HOVER};
-}
-
-form{
-    cursor: pointer;
-    background-color: ${({theme}) => theme.COLORS.BACKGROUND_800};
-    padding: 4.4rem;
-    border-radius: 1.6rem;
+    padding: 10rem 2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    gap: 5rem;
 
-    
+    .logo{
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.4rem;
+      margin: 0 auto;
+      animation: ${LogoAppear} 1s ease-in-out;
+    }
 
+    form{
+      color: ${({theme}) => theme.COLORS.LIGHT};
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
 
-
-   div:nth-child(2), div:nth-child(3), button {
+      div:nth-child(2), div:nth-child(3), div:nth-child(4), button, h1{
     animation: ${InputField} 1s cubic-bezier(0.70, 0.05, 0.55, 0.95);
   }
 
 
-  
-
-    h1{
-        font-family: 'Poppins', sans-serif;
-        font-weight: 500;
-    }
-
-    p{
-        font-family: 'Roboto', sans-serif;
-        color: ${({theme}) => theme.COLORS.LIGHT};
-        margin-bottom: 1rem;
-    }
-
-    input{
+      h1{
         color: ${({theme}) => theme.COLORS.WHITE};
-        width: 34.8rem;
-        padding: 1.5rem;
-        background: transparent;
-        border-radius: 0.5rem;
-        border: 0.1rem solid white;
+        display: none;
+      }
+    }
+
+    .input-wrapper{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input{
+      background: ${({theme}) => theme.COLORS.BACKGROUND_800};
+      color: ${({theme}) => theme.COLORS.WHITE};
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 0.5px solid ${({theme}) => theme.COLORS.LIGHT_100};
     }
 
     button{
-        padding: 1.5rem;
-        width: 100%;
-    }
-}
-.logo{
-    animation: ${LogoAppear} 1s ease-in-out;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-
-
-    h1{
-        font-family: 'Poppins', sans-serif;
-        font-weight: bold;
-    }
-}
-.signUp, .admin{
-    font-family: 'Poppins', sans-serif;
-    border: none;
-    background: none;
-    color: ${({theme}) => theme.COLORS.WHITE};
-}
-
-.admin{
-    margin-top: 0.1rem;
-}
-
-
-@media(max-width: 1229px){
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 13rem;
-    form{
-    background: none;
+      width: 100%;
+      padding: 1rem;
+      
     }
 
-    h1{
-        white-space: nowrap;
+    .signUp{
+      background: none;
+      color: ${({theme}) => theme.COLORS.WHITE};
     }
-}
+
+
+
+    @media ${responsives.tablet}{
+      padding-top: 13rem;
+      .logo{
+        font-size: 2rem;
+        
+
+        >img{
+          width: 4rem;
+        }
+      }
+    }
+
+
+    @media ${responsives.laptop}{
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 15rem;
+        padding-top: 15%;
+        padding-right: 10%;
+
+        
+        form{
+          background-color: ${({theme}) => theme.COLORS.BACKGROUND_800};
+          border-radius: 8px;
+          padding: 5rem 5rem;
+          width: 100%;
+          max-width: 40rem;
+          h1{
+            display: block;
+          }
+        }
+    }
+
 `
 

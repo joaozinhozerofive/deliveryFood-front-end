@@ -14,15 +14,13 @@ import { useAuth } from "../../hooks/auth";
 
 export function Home(){
     const {user} = useAuth();
-    const navigation = useNavigate()
+    const navigation = useNavigate();
     const [search, setSearch] = useState("");
-    const [dishes, setDishes] = useState([]);
     const [mealCategory, setMealCategory] = useState([]);
     const [drinkCategory, setDrinkCategory] = useState([]);
     const [dessertCategory, setDessertCategory] = useState([]);
 
-    console.log("user:", user);
-    console.log("user.admin:", user.admin);
+    console.log(user.admin)
 
     
     
@@ -39,7 +37,6 @@ export function Home(){
               setMealCategory(mealItems);
               setDessertCategory(dessertItems);
               setDrinkCategory(drinkItems);
-              setDishes(dishes)
 
               
         }

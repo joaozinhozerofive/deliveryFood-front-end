@@ -71,20 +71,16 @@ export const Page = styled.div`
       }
 
     }
-      padding-left: 5rem;
-      padding-right: 2rem;
     }
     @media ${responsives.laptopL}{
-      padding-left: 12rem;
-      padding-right: 12rem;
+      padding-right: 10%;
+      padding-left: 10%;
       >.foods{
       .category{
           font-size: 3.5rem;
       }
     }
     @media ${responsives.desktop}{
-      padding-left: 14rem;
-      padding-right: 14rem;
 
     }
     }

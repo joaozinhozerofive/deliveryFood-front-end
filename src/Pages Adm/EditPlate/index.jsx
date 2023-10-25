@@ -7,7 +7,7 @@ import { Form } from "./style";
 import { TagItem } from "../../components/TagItem";
 import { Textarea } from "../../components/Textarea";
 import imgUpload from "../../Assets/uploadImg.svg"
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { api } from "../../services/api";
@@ -48,7 +48,6 @@ export function EditPlate(){
     const params = useParams()
 
     const ingredientsUpdated = (ingredientsData.map(tag  => tag.name ? tag.name : tag))
-    //importante o que está nesse console.log para armazenar em uma variável e enviar os dados para o banco de dados. 
     console.log()
 
 

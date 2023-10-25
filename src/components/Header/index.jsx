@@ -16,8 +16,10 @@ import { useState } from "react"
 export function Header({search}){
     const [loading, setLoading] = useState(false)
     const navigation = useNavigate();
-    const {isAdmin} = useAuth();
+    const {user} = useAuth();
     const {signOut} = useAuth()
+
+    const isAdmin = user.admin;
 
     function logOut(){
         signOut()
