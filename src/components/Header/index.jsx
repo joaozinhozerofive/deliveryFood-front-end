@@ -4,12 +4,14 @@ import {FiSearch} from "react-icons/fi"
 import { InputHeader } from "../InputHeader"
 import { Button } from "../Button"
 import { FiShoppingCart } from "react-icons/fi"
-import { useNavigate } from "react-router-dom"
 import hamburguer from "../../Assets/hamburguer.svg"
-
-
 import buttonLogout from "../../Assets/buttonlogout.svg"
 import buttonOrder from "../../Assets/buttonOrders.svg"
+import favorites from "../../Assets/favorites.svg"
+
+import { useNavigate } from "react-router-dom"
+
+
 import { useAuth } from "../../hooks/auth"
 import { useState } from "react"
 
@@ -124,6 +126,8 @@ export function Header({search}){
         icon={FiShoppingCart}
         title={`Carrinho ( 0 )` }
         />
+
+        <img onClick={() => navigation("/favorites")} src={favorites} alt="Imagem de coração sinalizando a rota para os favoritos" />
 
         <img 
         onClick={() => signOut()}

@@ -5,6 +5,7 @@ import { NewPlate } from '../Pages Adm/NewPlate';
 import { Dishes } from '../Pages Comum/Dishes';
 import { EditPlate } from '../Pages Adm/EditPlate';
 import { Menu } from '../Pages Comum/Menu';
+import { Favorites } from '../Pages Comum/Favorites';
 
 
 export function AppRoutes(){
@@ -15,6 +16,7 @@ export function AppRoutes(){
             <Route path= '/edit/:plate_id' element={<EditPlate/> } />
             <Route path= '/plates/:plate_id' element={<Dishes/> } />
             <Route path= '/menu' element={<Menu/> } />
+            <Route path= '/favorites' element={<Favorites/> } />
         </Routes>
     )
 }

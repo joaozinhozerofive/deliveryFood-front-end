@@ -3,6 +3,7 @@ import { responsives } from '../../Configs'
 
 
 export const Container = styled.header `
+padding-right: 1rem;
  h1{
             white-space: nowrap;
             font-family: 'Roboto', sans-serif;

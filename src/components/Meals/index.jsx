@@ -1,7 +1,8 @@
 import { Container } from "./style";  
 
 
-import favorites from "../../Assets/favorites.svg"
+import { IoMdHeartEmpty } from 'react-icons/io'
+import {IoMdHeart} from 'react-icons/io'
 import buttonEdit from "../../Assets/buttonEdit.svg"
 import imgButtonLess from "../../Assets/less.svg"    
 import imgButtonMore from "../../Assets/more.svg" 
@@ -22,6 +23,7 @@ import "swiper/css/pagination";
 
 import { responsives } from "../../Configs";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 
 
@@ -32,6 +34,7 @@ export function Meals ({plates, ...rest}) {
 
     const isAdmin = user.admin;
 
+
     const [slidesPerView, setSlidesPerView] = useState(4)
     const [spaceBetween, setSpaceBetween] = useState(15)
 
@@ -39,8 +42,25 @@ export function Meals ({plates, ...rest}) {
     function handleDetails(id) {
       navigation(`/plates/${id}`);
   }
+
+
     function handleEdit(id) {
       navigation(`/edit/${id}`);
+  }
+
+  async function handleFavorite(id){
+    try{
+       await api.post(`/favorites/${id}`)
+       toast.success("Favorito adicionado com sucesso!")
+    }
+     catch(error){
+      if(error.response){
+        toast.error(error.response.data.message)
+      }else{
+        toast.error("Não foi possível adicionar o prato aos favoritos.")
+      }
+    }
+           
   }
 
   let count = "1"
@@ -71,6 +91,7 @@ export function Meals ({plates, ...rest}) {
   useEffect(() => {
     const handleResize = () => {
        if(window.matchMedia(responsives.mobileL).matches){
+        setSlidesPerView(4)
         setSpaceBetween(20);
       }
       if (window.matchMedia(responsives.tablet).matches){
@@ -83,14 +104,14 @@ export function Meals ({plates, ...rest}) {
       
       
       if (window.matchMedia(responsives.laptop).matches){
-        setSlidesPerView(70);
+        setSlidesPerView(250);
       }
       if (window.matchMedia(responsives.laptopL).matches){
-        setSlidesPerView(50);
+        setSlidesPerView(20);
       }
       
       if (window.matchMedia(responsives.desktop).matches){
-        setSlidesPerView(50)
+        setSlidesPerView(30)
       }
     };
 
@@ -110,6 +131,7 @@ export function Meals ({plates, ...rest}) {
 
             {isAdmin ? 
             <Swiper
+               loop = {true}
                freeMode = {true}
                centeredSlides={true}
                touchRatio={0.5}
@@ -154,11 +176,12 @@ export function Meals ({plates, ...rest}) {
                 
                 <SwiperSlide className="mealsActive not-admin" key={String(plate.plate_id)} >
                 <div className="content-meals">
-                   <img onClick={() => {}}  id="edit"  src={favorites} alt="coração favoritos" />
-                   <img  onClick={() => handleDetails(plate.plate_id)} id="snack" src={`${api.defaults.baseURL}/files/${plate.img}`} alt="imagem do prato " />
-                   <h1 id="snackName">{`${plate.name} >` }</h1>
-                   <p>{`${plate.description}`}</p>
-                   <h2>{`R$ ${plate.price}`}</h2>
+                  
+                   <IoMdHeart size={40} id={`edit`} onClick={() => handleFavorite(plate.plate_id)} />
+                    <img  onClick={() => handleDetails(plate.plate_id)} id="snack" src={`${api.defaults.baseURL}/files/${plate.img}`} alt="imagem do prato " />
+                    <h1 id="snackName">{`${plate.name} >` }</h1>
+                    <p>{`${plate.description}`}</p>
+                    <h2>{`R$ ${plate.price}`}</h2>
 
                    </div>
                   <div id="includs">

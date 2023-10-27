@@ -2,11 +2,13 @@ import { Container } from "./style";
 import logofooter from "../../Assets/logofooter.svg"
 
 
-export function Footer(){
+export function Footer({...rest}){
 
     return(
 
-        <Container>
+        <Container
+        {...rest}
+        >
             <div className="footer">
                 <img src={logofooter} alt="Logo footer food explorer " />
                 <h1>food explorer</h1>

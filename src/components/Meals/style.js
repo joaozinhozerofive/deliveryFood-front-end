@@ -4,6 +4,7 @@ import { responsives } from '../../Configs'
 
 export const Container = styled.div`
     width: 150rem;
+    margin-left: -4rem;
     display: flex;
     flex-direction: row;
     filter: drop-shadow(0px 0px 0.5rem ${({theme}) => theme.COLORS.HOVER});
@@ -275,7 +276,7 @@ export const Container = styled.div`
     }
 
     .swiper-button-prev{
-        left: 83rem;
+        left: 80rem;
     }
     .swiper-button-next{
         right: 0;
