@@ -28,6 +28,10 @@ header{
     gap: 3.2rem;
     font-size: 1.6rem;
 
+
+    .favorites{
+        margin-left: -1rem;
+    }
     .logo{
         display: flex;
         align-items: center;

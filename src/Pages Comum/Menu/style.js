@@ -1,8 +1,26 @@
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 import { responsives } from '../../Configs'
 
 
+
+const InputField = keyframes`
+  0% {
+    filter: opacity(0);
+    transform: translateX(-300px);
+  }
+  50% {
+    filter: opacity(1);
+  }
+  100% {
+    transform: translateX(0);
+
+  }
+`;
+
+
 export const Container = styled.div`
+
+    animation: ${InputField} 600ms cubic-bezier(0.1, 0.05, 0.1, 0.1);
 
     main{
         padding: 3rem

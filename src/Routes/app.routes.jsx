@@ -6,6 +6,7 @@ import { Dishes } from '../Pages Comum/Dishes';
 import { EditPlate } from '../Pages Adm/EditPlate';
 import { Menu } from '../Pages Comum/Menu';
 import { Favorites } from '../Pages Comum/Favorites';
+import { Cart } from '../Pages Comum/Cart';
 
 
 export function AppRoutes(){
@@ -17,6 +18,7 @@ export function AppRoutes(){
             <Route path= '/plates/:plate_id' element={<Dishes/> } />
             <Route path= '/menu' element={<Menu/> } />
             <Route path= '/favorites' element={<Favorites/> } />
+            <Route path= '/checkout' element={<Cart/> } />
         </Routes>
     )
 }

@@ -2,11 +2,25 @@ import styled from "styled-components";
 import { responsives } from "../../Configs";
 
 
+
 export const Container = styled.div`
+
     display: flex;
     flex-direction : column;
-    max-width: 100%;
     height: 100vh;
+    font-family: 'Poppins', sans-serif;
+
+    
+    .total{
+        padding: 1rem;
+        border-top: 1px solid ${({theme}) => theme.COLORS.LIGHT};
+        color: #1eb340;
+
+    }
+
+    
+
+    
 
    
     .buttonBack{
@@ -26,9 +40,9 @@ export const Container = styled.div`
         width: 100%;
         margin-top: 15rem;
         gap: 2rem;
-        padding: 0 2rem;
         display: flex;
         flex-direction : column;
+        padding: 0 2rem;
 
         
         
@@ -37,9 +51,10 @@ export const Container = styled.div`
             font-weight: 400;
             font-size: 2.5rem;
             margin-bottom: 3rem;
+            margin-top: 3rem;
         }
 
-        .notFavorites{
+        .notCart{
             color: ${({theme}) => theme.COLORS.RED_700};
             font-family: 'Poppins', sans-serif;
             font-weight: 400;
@@ -50,12 +65,26 @@ export const Container = styled.div`
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        margin-bottom: 2rem;
     }
 
-        .favorites{
+        .orders{
         display: flex;
         align-items: center;
         gap: 2rem;
+
+        div{
+            >div{
+                display: flex;
+                justify-content: space-between;
+
+                
+                .Price{
+                    color: ${({theme}) => theme.COLORS.LIGHT};
+                    font-size: 1.1rem;
+                }
+            }
+        }
 
         p{
             white-space: nowrap;
@@ -84,81 +113,20 @@ export const Container = styled.div`
         }
     }
     }
-
+     .payment{
+        margin-left: 2rem;
+     }
     .newFooter{
         margin-top: 30rem;
     }
-
-
-    @media ${responsives.tablet}{
-
-        main{
-            margin-bottom: 2rem;
-            .content{
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-
-
-            .favorites{
-                min-width: 30rem;
-            }
-        }
-    }
+    
     @media ${responsives.laptop}{
-        .buttonBack{
-            font-size: 2.5rem;
-        img{
-            width: 1.2rem;
-        }
-    }
-
         main{
-            margin-bottom: 15rem;
-        
-        
-        h1{
-            font-size: 3rem;
-            margin: 3rem auto;
+            padding-left: 10%;
+            padding-right: 10%;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 30rem;
         }
-    
-        .content{
-            gap: 4rem;
-        }
-        .favorites{
-            min-width: 37rem;
-            p{
-                font-size: 3rem;
-            }
-
-
-            img{
-                border-radius: 50%;
-                width: 100%;
-                height: 100%;
-                max-width: rem;
-                max-height: 8rem;
-            }
-    }
-    }
-
-    .newFooter{
-        margin-top: 30rem;
-    }
-    
-    }
-
-
-    @media ${responsives.laptopL}{
-        main{
-            padding-left: 6rem;
-
-
-            .favorites{
-                min-width: 40rem;
-            }
-        }
-
-        
     }
 `

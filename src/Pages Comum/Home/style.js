@@ -56,6 +56,7 @@ export const Page = styled.div`
     }
 
     @media ${responsives.tablet}{
+      padding: 1rem;
       >.foods{
       .category{
           font-size: 2.5rem;

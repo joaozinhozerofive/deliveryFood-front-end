@@ -131,7 +131,6 @@ export function Meals ({plates, ...rest}) {
 
             {isAdmin ? 
             <Swiper
-               loop = {true}
                freeMode = {true}
                centeredSlides={true}
                touchRatio={0.5}

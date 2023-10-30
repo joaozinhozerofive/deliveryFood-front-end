@@ -114,6 +114,7 @@ export function Header({search}){
 
         <div className="requests">
         <img 
+        onClick={() => navigation('/checkout')}
         src={buttonOrder} alt="Botão de pedidos" />
         <Button
         title={`${"1"}` }
@@ -121,13 +122,13 @@ export function Header({search}){
         </div>
 
         <Button
-        isLoading ={loading}
+        onClick={() => navigation('/checkout')}
         className = "cart"
         icon={FiShoppingCart}
         title={`Carrinho ( 0 )` }
         />
 
-        <img onClick={() => navigation("/favorites")} src={favorites} alt="Imagem de coração sinalizando a rota para os favoritos" />
+        <img className="favorites" onClick={() => navigation("/favorites")} src={favorites} alt="Imagem de coração sinalizando a rota para os favoritos" />
 
         <img 
         onClick={() => signOut()}

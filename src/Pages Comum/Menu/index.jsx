@@ -41,7 +41,8 @@ export function Menu({...rest}){
     <h2 className={isAdmin ? "" : "hidden"} onClick={() =>navigation("/new")}>
         Novo prato
      </h2>   
-    <h2 className={isAdmin ? "hidden" : ""}>
+    <h2
+    onClick={() => navigation("/favorites")} className={isAdmin ? "hidden" : ""}>
         Favoritos
      </h2>   
 
