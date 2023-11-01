@@ -3,6 +3,7 @@ import { Button } from "../Button";
 import {AiFillCreditCard} from "react-icons/ai"
 import {FaPix} from 'react-icons/fa6'
 import pix from '../../Assets/pix.svg'
+import { useEffect } from "react";
 
 export function Payment({...rest}){
 
@@ -61,6 +62,10 @@ export function Payment({...rest}){
 
 
     }
+
+
+
+    
 
 
     return(

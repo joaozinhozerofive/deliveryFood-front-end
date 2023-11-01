@@ -60,7 +60,14 @@ header{
 
     
 
-    
+    .buttons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        gap: 2rem;
+    }
 
     .orders, .requests{
         position: relative; 

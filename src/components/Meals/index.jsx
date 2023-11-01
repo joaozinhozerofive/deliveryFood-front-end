@@ -24,6 +24,7 @@ import "swiper/css/pagination";
 import { responsives } from "../../Configs";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { UseCart } from "../../hooks/cart";
 
 
 
@@ -31,12 +32,29 @@ import { toast } from "react-toastify";
 export function Meals ({plates, ...rest}) {
     const navigation = useNavigate();
     const {user} = useAuth();
+    const {addPlateToCart, removePlateToCart} = UseCart()
 
     const isAdmin = user.admin;
 
 
     const [slidesPerView, setSlidesPerView] = useState(4)
     const [spaceBetween, setSpaceBetween] = useState(15)
+
+    const [countPerPlate, setCountPerPlate] = useState({});
+
+  function increaseValue(plateId) {
+    setCountPerPlate((prevState) => ({
+      ...prevState,
+      [plateId]: (prevState[plateId] || 0) + 1,
+    }));
+  }
+
+  function decreaseValue(plateId) {
+    setCountPerPlate((prevState) => ({
+      ...prevState,
+      [plateId]: Math.max(0, (prevState[plateId] || 0) - 1),
+    }));
+  }
 
      
     function handleDetails(id) {
@@ -62,30 +80,6 @@ export function Meals ({plates, ...rest}) {
     }
            
   }
-
-  let count = "1"
-  
-  function increaseValue(plate_id) {
-     count = document.getElementById(`counter-${plate_id}`);
-    
-    const currentValue = parseInt(count.innerText, 10);
-    if(currentValue > 19 ){
-      return
-    }
-    count.innerText = currentValue + 1;
-  }
-  function decreaseValue(plate_id) {
-    count = document.getElementById(`counter-${plate_id}`);
-
-    
-    const currentValue = parseInt(count.innerText, 10);
-    
-    if(currentValue < 1 ){
-      return
-    }
-    count.innerText = currentValue - 1;
-  }
-
 
 
   useEffect(() => {
@@ -186,10 +180,14 @@ export function Meals ({plates, ...rest}) {
                   <div id="includs">
                     <div>
                       <img onClick={() => decreaseValue(plate.plate_id)} src={imgButtonLess} alt="botao de diminuir" />
-                      <h3 id= {`counter-${plate.plate_id}`}>{count}</h3>
+                      <h3 id= {`counter`}>{countPerPlate[plate.plate_id] || 0}</h3>
                       <img onClick={() => increaseValue(plate.plate_id)}  src={imgButtonMore} alt="botao de incluir"  />
                   </div>
                     <Button 
+                    onClick={() => {addPlateToCart(plate, countPerPlate[plate.plate_id] || 0 )}}
+                    
+                    
+                      
                     title={"incluir"}
                     />
                   </div>

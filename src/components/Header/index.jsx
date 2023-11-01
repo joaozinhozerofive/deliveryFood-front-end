@@ -13,14 +13,21 @@ import { useNavigate } from "react-router-dom"
 
 
 import { useAuth } from "../../hooks/auth"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { UseCart } from "../../hooks/cart"
 
 export function Header({search}){
     const [loading, setLoading] = useState(false)
     const navigation = useNavigate();
     const {user} = useAuth();
     const {signOut} = useAuth()
+    const {cartItemsLength} = UseCart();
 
+
+
+
+    
+    
     const isAdmin = user.admin;
 
     function logOut(){
@@ -117,7 +124,7 @@ export function Header({search}){
         onClick={() => navigation('/checkout')}
         src={buttonOrder} alt="Botão de pedidos" />
         <Button
-        title={`${"1"}` }
+        title={`${cartItemsLength || 0}` }
         />
         </div>
 

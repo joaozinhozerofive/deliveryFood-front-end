@@ -1,4 +1,5 @@
 import { AuthProvider } from './hooks/auth.jsx'
+import { CartProvider } from './hooks/cart.jsx'
 import { Routes } from './Routes/index.jsx'
 
 import React from 'react'
@@ -13,7 +14,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 <ThemeProvider theme={theme}>
   <GlobalStyle/>
   <AuthProvider>
+  <CartProvider>
     <Routes />
+  </CartProvider>
   </AuthProvider>
   </ThemeProvider>
   </React.StrictMode>,

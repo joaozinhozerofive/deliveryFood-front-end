@@ -50,6 +50,7 @@ function AuthProvider ({ children }) {
 
                 localStorage.removeItem("@deliveryFood:user")
                 localStorage.removeItem("@deliveryFood:token")
+                localStorage.removeItem('@foodExplorer:cart')
 
 
                 setData({})
