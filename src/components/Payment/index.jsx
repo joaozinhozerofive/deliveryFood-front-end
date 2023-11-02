@@ -3,18 +3,28 @@ import { Button } from "../Button";
 import {AiFillCreditCard} from "react-icons/ai"
 import {FaPix} from 'react-icons/fa6'
 import pix from '../../Assets/pix.svg'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
-export function Payment({...rest}){
+export const  Payment = ({...rest}) => {
+    const [numberCard, setNumberCard] = useState("")
+    const [validity, setValidity] = useState("")
+    const [cvc, setCvc] = useState("")
 
     function selectedPix() {
         const pixElements = document.getElementsByClassName('pix');
         const cardElements = document.getElementsByClassName('card')
         const infoCard = document.getElementsByClassName('infoCard')
         const pixQrCode = document.getElementsByClassName('pixQrCode')
+        const buttonPayment = document.getElementsByClassName('buttonPayment')
+        
 
 
         
+        for (let i = 0; i < buttonPayment.length; i++) {
+            buttonPayment[i].classList.add('hidden');
+        }
+
         for (let i = 0; i < pixQrCode.length; i++) {
             pixQrCode[i].classList.remove('hidden');
         }
@@ -40,8 +50,6 @@ export function Payment({...rest}){
         const infoCard = document.getElementsByClassName('infoCard')
         const pixQrCode = document.getElementsByClassName('pixQrCode')
 
-
-        
         for (let i = 0; i < pixQrCode.length; i++) {
             pixQrCode[i].classList.add('hidden');
         }
@@ -57,13 +65,10 @@ export function Payment({...rest}){
         for (let i = 0; i < pixElements.length; i++) {
             pixElements[i].classList.remove('selected');
         }
-        
-
-
-
     }
 
 
+    
 
     
 
@@ -94,7 +99,7 @@ export function Payment({...rest}){
 
                     <label htmlFor="cardNumber">
                     <p>Número do cartão</p>
-                    <input placeholder="0000 0000 0000 0000" id="cardNumber" maxLength = "16" type="text" />
+                    <input onChange={(e) => setNumberCard(e.target.value)} placeholder="0000 0000 0000 0000" id="cardNumber" maxLength = "16" type="text" />
                     </label>
 
                    </td>
@@ -106,12 +111,12 @@ export function Payment({...rest}){
 
                     <label htmlFor="validity">
                     <p>Validade</p>
-                    <input placeholder="04/25" id="validity" maxLength = "17" type="month" />
+                    <input onChange={(e) => setValidity( e.target.value)} placeholder="04/25" id="validity" maxLength = "17" type="month" />
                     </label>
 
                     <label htmlFor="CVC">
                     <p>CVC</p>
-                    <input placeholder="" id="CVC" maxLength = "3" type="text" />
+                    <input onChange={(e) => setCvc( e.target.value)} placeholder="" id="CVC" maxLength = "3" type="text" />
                     </label>
 
                    </td>
@@ -123,8 +128,8 @@ export function Payment({...rest}){
                 <tbody className="pixQrCode hidden">
                     <img id="imgQrCode" src={pix} alt="qr code pix" />
                 </tbody>
-                <Button
-                title={"Finalizar pagamento"} />
+
+                
             </table>
 
         </Container>

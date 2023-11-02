@@ -18,10 +18,12 @@ import { UseCart } from "../../hooks/cart"
 
 export function Header({search}){
     const [loading, setLoading] = useState(false)
+
     const navigation = useNavigate();
     const {user} = useAuth();
     const {signOut} = useAuth()
     const {cartItemsLength} = UseCart();
+
 
 
 
@@ -102,9 +104,7 @@ export function Header({search}){
 
             <div className="logo" onClick={() => navigation("/")} >
             <img src={logoFood} alt="logoFood" />
-            <div id="admin">
             <h1>food explorer</h1>
-            </div>
         </div>
 
 
@@ -132,7 +132,7 @@ export function Header({search}){
         onClick={() => navigation('/checkout')}
         className = "cart"
         icon={FiShoppingCart}
-        title={`Carrinho ( 0 )` }
+        title={`Carrinho ( ${cartItemsLength || 0} )` }
         />
 
         <img className="favorites" onClick={() => navigation("/favorites")} src={favorites} alt="Imagem de coração sinalizando a rota para os favoritos" />

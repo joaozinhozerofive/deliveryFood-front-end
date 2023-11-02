@@ -90,12 +90,7 @@ table{
     
     
     
-    button{
-    margin: 0 auto;
-    width: 90%;
-    font-family: 'Poppins', sans-serif;
-    padding: 1rem;
-    }
+    
 }
 
 

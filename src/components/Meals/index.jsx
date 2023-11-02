@@ -32,17 +32,18 @@ import { UseCart } from "../../hooks/cart";
 export function Meals ({plates, ...rest}) {
     const navigation = useNavigate();
     const {user} = useAuth();
-    const {addPlateToCart, removePlateToCart} = UseCart()
+    const {addPlateToCart} = UseCart()
 
     const isAdmin = user.admin;
 
 
-    const [slidesPerView, setSlidesPerView] = useState(4)
+    const [slidesPerView, setSlidesPerView] = useState(1.8)
     const [spaceBetween, setSpaceBetween] = useState(15)
 
     const [countPerPlate, setCountPerPlate] = useState({});
 
   function increaseValue(plateId) {
+    
     setCountPerPlate((prevState) => ({
       ...prevState,
       [plateId]: (prevState[plateId] || 0) + 1,
@@ -84,28 +85,23 @@ export function Meals ({plates, ...rest}) {
 
   useEffect(() => {
     const handleResize = () => {
-       if(window.matchMedia(responsives.mobileL).matches){
-        setSlidesPerView(4)
-        setSpaceBetween(20);
+       if(window.matchMedia(responsives.mobileS).matches){
+        setSpaceBetween(15);
       }
       if (window.matchMedia(responsives.tablet).matches){
-        setSlidesPerView(13)
+        setSlidesPerView(3)
         setSpaceBetween(25)
       }
       if (window.matchMedia('(min-width: 900px)').matches){
-        setSlidesPerView(20);
+        setSlidesPerView(3.5);
       }
       
-      
-      if (window.matchMedia(responsives.laptop).matches){
-        setSlidesPerView(250);
-      }
       if (window.matchMedia(responsives.laptopL).matches){
-        setSlidesPerView(20);
+        setSlidesPerView(3.5);
       }
       
       if (window.matchMedia(responsives.desktop).matches){
-        setSlidesPerView(30)
+        setSlidesPerView(3.8)
       }
     };
 
@@ -125,8 +121,6 @@ export function Meals ({plates, ...rest}) {
 
             {isAdmin ? 
             <Swiper
-               freeMode = {true}
-               centeredSlides={true}
                touchRatio={0.5}
                speed={1000}
                slidesPerView={slidesPerView}
@@ -154,14 +148,11 @@ export function Meals ({plates, ...rest}) {
 
              
                <Swiper
-               freeMode = {true}
-               centeredSlides={true}
                touchRatio={0.5}
                speed={1000}
                slidesPerView={slidesPerView}
                spaceBetween={spaceBetween}
                navigation={true}
-               modules={[ Navigation]}
                className="mySwiper"
                   >
    

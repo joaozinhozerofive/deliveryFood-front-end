@@ -29,15 +29,6 @@ export function Menu({...rest}){
     <h1>Menu</h1>
     </header>
     <main>
-        
-    <div className="input">
-        <InputHeader
-        type = "text"
-        icon={FiSearch}
-        placeholder = "Busque por pratos ou ingredientes"
-        />
-    </div>
-    
     <h2 className={isAdmin ? "" : "hidden"} onClick={() =>navigation("/new")}>
         Novo prato
      </h2>   

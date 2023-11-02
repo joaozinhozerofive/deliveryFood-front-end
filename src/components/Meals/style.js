@@ -3,11 +3,9 @@ import { responsives } from '../../Configs'
 
 
 export const Container = styled.div`
-    width: 150rem;
-    margin-left: -4rem;
+    width: 100% ;
     display: flex;
     flex-direction: row;
-    filter: drop-shadow(0px 0px 0.5rem ${({theme}) => theme.COLORS.HOVER});
 
 
     
@@ -16,16 +14,11 @@ export const Container = styled.div`
           display: none;
           color: #ffffff;
           height: 60rem;
-          filter: drop-shadow(0px 0px 0.5rem ${({theme}) => theme.COLORS.HOVER});
           position: relative;
-
-
-          
         }
-
         .mySwiper{
-        margin-left: -22rem;
-        width: 60rem;
+        width: 100%;
+
         position: relative;
     }
         
@@ -116,18 +109,14 @@ export const Container = styled.div`
     }
 
 
-@media ${responsives.mobileL}{
-        margin-left: 3rem;
-    }
 
 @media ${responsives.tablet}{
     .mySwiper{
-        width: 150rem;
-        margin-left: -65rem;
+        width: 100%;
+
     }
     .swiper-button-prev{
         position: absolute;
-        right: 1rem;
     }
     .mealsActive{
         min-width: 25rem;
@@ -150,20 +139,11 @@ export const Container = styled.div`
 }
 
 
-@media ${responsives.tabletS}{
-    .mySwiper{
-        width: 180rem;
-        margin-left: -82rem;
-    }
-}
 
 
 @media ${responsives.laptop}{
-    margin-left: -30rem;
 
-    .mySwiper{
-        width: 250rem;
-    }
+
     .mealsActive{
         width: 28rem;
         padding: 3rem;
@@ -184,38 +164,14 @@ export const Container = styled.div`
 
 
     
-.swiper-button-disabled {
-    display: none;
-}
-.swiper-button-next,
-.swiper-button-prev {
-  display: block;
-  position: absolute;
-}
 
 
-.swiper-button-prev{
-    left: 115rem;
-}
-.swiper-button-next{
-    right: 18rem;
-}
-
-
-.mySwiper{
-    gap: 1rem;
-}
 }
 
 
 @media ${responsives.laptopL}{
     width: 100%;
-
-    .mySwiper{
-        width: 100%;
-        min-width: 190rem;
-        margin-left: -55rem;
-    }
+    
     .mealsActive.not-admin{
         min-width: 30rem;
         max-width: 32rem;
@@ -274,32 +230,28 @@ export const Container = styled.div`
          text-align: center;
         
     }
-
-    .swiper-button-prev{
-        left: 80rem;
-    }
-    .swiper-button-next{
-        right: 0;
-    }
+    .swiper-button-disabled {
+    display: none;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  display: block;
+  position: absolute;
 }
 
-@media (min-width: 1440px){
-    .mySwiper{
-        margin-left: -50rem;
-    }
-
-
-
-    .swiper-button-prev{
-        left: 82rem;
+.swiper-button-next{
+    right: 0;
+}
+    .swiper-button-next{
+        right: 0;
     }
 }
 
 @media ${responsives.desktop}{
     .mySwiper{
         width: 100%;
-        min-width: 260rem;
-        margin-left: -80rem;
+        min-width: 150rem;
+
     }
     .mealsActive.not-admin{
         min-width: 38rem;
@@ -349,10 +301,6 @@ export const Container = styled.div`
     p{
         line-height: 3rem;
         font-size: 2.4rem;
-    }
-
-    .swiper-button-prev{
-        left: 115rem;
     }
 }
 `

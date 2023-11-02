@@ -14,6 +14,9 @@ import { useAuth } from "../../hooks/auth.jsx";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api.js";
 
+import { UseCart } from "../../hooks/cart";
+
+
 export function Dishes(){
     const [data, setData] = useState({});
     const [image, setImage] = useState("");
@@ -22,7 +25,10 @@ export function Dishes(){
     const [price, setPrice] = useState("");
     const [count , setCount] = useState(Number(1));
 
+
     const {user} = useAuth();
+    const {addPlateToCart} = UseCart()
+
 
     const isAdmin = user.admin;
     
@@ -32,9 +38,6 @@ export function Dishes(){
     console.log(image)
 
     function increaseValue(){
-        if(count > 19 ){
-            return
-        }
         setCount(count + 1)
     }
 
@@ -48,9 +51,6 @@ export function Dishes(){
     }
 
   
-  
-
-
 
 
     useEffect(() =>{
@@ -65,6 +65,8 @@ export function Dishes(){
             setName(response.data.plates[0].name)
             setDescription(response.data.plates[0].description)
             setPrice(response.data.plates[0].price)
+
+            console.log(data.plates[0])
 
         }
 
@@ -151,7 +153,7 @@ export function Dishes(){
                 <h3>{count}</h3>
                 <img onClick={increaseValue} src={imgButtonMore} alt="botao de incluir"  />
                 <Button 
-                onClick={() => navigation(-1)}
+                onClick={() => addPlateToCart(data.plates[0], count)}
                 title={  `R$ ${price}`}
                 />
                 

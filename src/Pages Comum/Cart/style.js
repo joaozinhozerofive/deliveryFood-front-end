@@ -113,9 +113,19 @@ export const Container = styled.div`
         }
     }
     }
-     .payment{
-        margin-left: 2rem;
-     }
+    #payment{
+
+        .payment{
+           margin-left: 2rem;
+        }
+        .buttonPayment{
+                margin: 2rem auto;
+                width: 90%;
+                font-family: 'Poppins', sans-serif;
+                padding: 1rem;
+        }
+
+    }
     .newFooter{
         margin-top: 30rem;
     }

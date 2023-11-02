@@ -70,11 +70,17 @@ function CartProvider({children}){
 
       }
 
+      function cleanCart(){
+        setCartItems([])
+        localStorage.removeItem('@foodExplorer:cart')
+      }
+
 
       return (
         <CartContext.Provider value={{
           cartItems,
           cartItemsLength,
+          cleanCart,
           addPlateToCart,
           removePlateToCart,
         }}
