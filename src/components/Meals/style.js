@@ -179,7 +179,8 @@ export const Container = styled.div`
         padding: 2rem 4rem 0rem 4rem;
     }
     .mealsActive.admin{
-        width: 30rem;
+        min-width: 30rem;
+        max-width: 32rem;
         min-height: 42rem;
         padding: 4rem;
     }

@@ -13,14 +13,6 @@ const LogoAppear = keyframes`
   }
 `;
 
-const fadeIn = keyframes`
-  from {
-    filter: opacity(0);
-  }
-  to {
-    filter: opacity(1);
-  }
-`;
 
 const InputField = keyframes`
   0% {

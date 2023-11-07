@@ -1,5 +1,21 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import { responsives } from "../../Configs";
+
+
+
+const InputField = keyframes`
+  0% {
+    filter: opacity(0);
+    transform: translateX(-30px);
+  }
+  50% {
+    filter: opacity(1);
+  }
+  100% {
+    transform: translateX(0);
+
+  }
+`;
 
 
 export const Container = styled.div`
@@ -17,6 +33,8 @@ export const Page = styled.main`
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    animation: ${InputField} 1s cubic-bezier(0.70, 0.05, 0.55, 0.95);
+
 
    
 
