@@ -41,9 +41,6 @@ export const Container = styled.div`
         
     }
 
-    .mealsActive:hover{
-        border: 1px solid ${({theme}) => theme.COLORS.HOVER};
-    }
     
     #favorites, #edit{
         position: absolute;
