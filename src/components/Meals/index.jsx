@@ -42,6 +42,8 @@ export function Meals ({plates, ...rest}) {
 
     const [countPerPlate, setCountPerPlate] = useState({});
 
+
+
   function increaseValue(plateId) {
     
     setCountPerPlate((prevState) => ({
@@ -49,6 +51,8 @@ export function Meals ({plates, ...rest}) {
       [plateId]: (prevState[plateId] || 0) + 1,
     }));
   }
+
+
 
   function decreaseValue(plateId) {
     setCountPerPlate((prevState) => ({
@@ -81,6 +85,8 @@ export function Meals ({plates, ...rest}) {
     }
            
   }
+
+  
 
 
   useEffect(() => {
