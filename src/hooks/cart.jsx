@@ -76,6 +76,11 @@ function CartProvider({children}){
       }
 
 
+    useEffect(() => {
+    localStorage.setItem("@foodExplorer:cart", JSON.stringify(cartItems))
+  }, [cartItems]);
+
+
       return (
         <CartContext.Provider value={{
           cartItems,
