@@ -8,6 +8,10 @@ export const Container = styled.div`
     max-width: 100%;
     height: 100vh;
 
+    p{
+        cursor: pointer;
+    }
+
    
     .buttonBack{
         display: flex;

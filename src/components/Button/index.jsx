@@ -1,4 +1,5 @@
 import { Container } from "./style";
+import { Loading } from "../Loading";
 
 export function Button({icon: Icon, onClick, isLoading, title, ...rest}){
     return(
@@ -10,7 +11,7 @@ export function Button({icon: Icon, onClick, isLoading, title, ...rest}){
         onClick={onClick}
         >
         {Icon && <Icon size={20}/>}
-        {title}
+        {isLoading ? <Loading/> : title}
         
         </Container>
 

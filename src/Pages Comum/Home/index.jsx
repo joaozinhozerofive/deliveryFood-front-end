@@ -7,10 +7,12 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Banners } from "../../components/Banners";
 import { Meals } from "../../components/Meals";
+import { InputHeader } from "../../components/InputHeader";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
+import { FiSearch } from "react-icons/fi";
 
 export function Home(){
     const {user} = useAuth();
@@ -58,6 +60,15 @@ export function Home(){
         
         <Banners 
         className = "banner"/>
+        <div className="inputMobile">
+            <InputHeader
+            onChange={e => setSearch(e.target.value)}
+            onClick={() => navigation("/")}
+            type = "text"
+            icon={FiSearch}
+            placeholder = "Busque por pratos ou ingredientes"
+             />
+            </div>
 
         <div className="foods">
             {mealCategory.length > 0 ?

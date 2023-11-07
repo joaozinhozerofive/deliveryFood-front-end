@@ -31,6 +31,11 @@ export function Cart(){
     const [data, setData] = useState([])
     const [totalPrice, setTotalPrice] = useState("0,00")
 
+    function handleDetails(id) {
+        navigation(`/plates/${id}`);
+    }
+  
+
 
     useEffect(() =>{
 
@@ -125,10 +130,10 @@ export function Cart(){
 {data && data.map((item) => (            
             <div key={String(item.plate_id)} className="content">
                             <div  className="orders">
-                                <img src={`${api.defaults.baseURL}/files/${item.img}`} alt="Imagem do prato" />
+                                <img onClick={() => handleDetails(item.plate_id)} src={`${api.defaults.baseURL}/files/${item.img}`} alt="Imagem do prato" />
 
                                 <div>
-                                    <p>{`${item.quantity}x ${item.name}`}</p>
+                                    <p onClick={() => handleDetails(item.plate_id)}>{`${item.quantity}x ${item.name}`}</p>
                                     <div>
                                     <span onClick={() => removePlateToCart(item)}>Excluir</span>
                                     <span className="Price">R$ {item.price}</span>

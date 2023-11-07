@@ -3,7 +3,6 @@ import { responsives } from '../../Configs'
 
 export const Container = styled.div`
 
-    filter: drop-shadow(0px 0px 0.2rem ${({theme}) => theme.COLORS.HOVER});
 
         background: ${({theme}) => theme.COLORS.BACKGROUND_500};  
         color: ${({theme}) => theme.COLORS.WHITE} ;
@@ -161,7 +160,6 @@ img{
 
 }
 @media ${responsives.laptop}{
-    filter: drop-shadow(0px 0px 0.5rem ${({theme}) => theme.COLORS.HOVER});
 
     height: 20rem;
     margin-top: 24rem;

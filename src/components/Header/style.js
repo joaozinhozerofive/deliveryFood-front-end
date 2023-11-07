@@ -108,6 +108,15 @@ header{
 
     }
 
+    .orderHistory{
+    padding: 0.4rem;
+    color: ${({theme}) => theme.COLORS.GRAY_700}; ;
+    border-radius: 0.5rem;
+    display: none;
+    font-size: 1.3rem;
+    
+}
+
 }
 
 @media ${responsives.tablet}{
@@ -180,7 +189,7 @@ header{
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    gap: 3.2rem;
+    gap: 2.5rem;
 
     .orders, .requests{
         img{
@@ -228,6 +237,15 @@ header{
 h1{
     font-size: 3rem;
 }
+
+.orderHistory{
+    display: flex;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+
+
     
     .logo{
         margin-top: -1rem;

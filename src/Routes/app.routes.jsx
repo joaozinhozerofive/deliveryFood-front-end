@@ -7,6 +7,8 @@ import { EditPlate } from '../Pages Adm/EditPlate';
 import { Menu } from '../Pages Comum/Menu';
 import { Favorites } from '../Pages Comum/Favorites';
 import { Cart } from '../Pages Comum/Cart';
+import { Orders } from '../Pages Comum/Orders';
+import { OrdersAdmin } from '../Pages Adm/OrdersAdmin';
 
 
 export function AppRoutes(){
@@ -19,6 +21,8 @@ export function AppRoutes(){
             <Route path= '/menu' element={<Menu/> } />
             <Route path= '/favorites' element={<Favorites/> } />
             <Route path= '/checkout' element={<Cart/> } />
+            <Route path= '/histórico-de-pedidos' element={<Orders/> } />
+            <Route path= '/pedidos' element={<OrdersAdmin/> } />
         </Routes>
     )
 }

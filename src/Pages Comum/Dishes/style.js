@@ -253,17 +253,17 @@ export const Page = styled.main`
             flex-direction: row;
         }
         #snack{
-            width: 60rem;
-            height: 60rem;
+            width: 50rem;
+            height: 50rem;
         }
 
        .content{
                 h1{
-                    font-size: 6rem;
+                    font-size: 5rem;
                 }
                 p{  
                     font-family: 'Poppins', sans-serif;
-                    font-size: 3rem;
+                    font-size: 2rem;
                     color: ${({theme}) => theme.COLORS.LIGHT_200};
                 }
 
@@ -273,7 +273,7 @@ export const Page = styled.main`
                     margin-bottom: 2rem;
 
                     .tags{
-                        padding: 2rem;
+                        padding: 1rem;
 
                         display: flex;
                         align-items: center;

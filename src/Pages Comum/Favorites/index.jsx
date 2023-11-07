@@ -36,6 +36,11 @@ export function Favorites(){
          
     }
 
+    function handleDetails(id) {
+        navigation(`/plates/${id}`);
+    }
+  
+
     
 
     useEffect(() => {
@@ -63,10 +68,10 @@ export function Favorites(){
                 {favorites && favorites.length > 0 ? 
                 (favorites.map( (favorite, index) =>(
                     <div key={String(index)} className="favorites">
-                        <img src={`${api.defaults.baseURL}/files/${favorite.img}`} alt="" />
+                        <img onClick={() => handleDetails(favorite.plate_id)} src={`${api.defaults.baseURL}/files/${favorite.img}`} alt="" />
 
                         <div>
-                            <p>{favorite.name}</p>
+                            <p onClick={() => handleDetails(favorite.plate_id)} >{favorite.name}</p>
                             <span onClick={() => handleRemoveFavorite(favorite.plate_id)} >Remover dos favoritos</span>
                         </div>
                     </div>

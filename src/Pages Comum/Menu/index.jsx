@@ -1,6 +1,6 @@
 import { Container } from "./style";
 import { FiX } from "react-icons/fi";
-import {FiSearch} from "react-icons/fi"
+import buttonLogout from "../../Assets/buttonlogout.svg"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
 import { InputHeader } from "../../components/InputHeader";
@@ -16,8 +16,6 @@ export function Menu({...rest}){
         navigation("/")
 
     }
-
-
     return(
         <Container>
 
@@ -36,10 +34,17 @@ export function Menu({...rest}){
     onClick={() => navigation("/favorites")} className={isAdmin ? "hidden" : ""}>
         Favoritos
      </h2>   
+    <h2
+    onClick={() => navigation("/histórico-de-pedidos")} className={isAdmin ? "hidden" : ""}>
+        Histórico de pedidos
+     </h2>   
 
     <h2
+    className="logout"
     onClick={() => logOut()}
-    >Sair</h2>
+    >Sair
+    <img src={buttonLogout} alt="" />
+    </h2>
     </main>
      
         </Container>

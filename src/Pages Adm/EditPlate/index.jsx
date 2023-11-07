@@ -25,6 +25,8 @@ export function EditPlate(){
     
     const [data, setData] =useState({})
 
+    const [isLoading, setIsloading] = useState(false)
+
 
     const [imageData, setImageData] = useState("")
     const [nameData, setNameData] = useState("")
@@ -78,6 +80,7 @@ export function EditPlate(){
 
 
     async function HandleEditPlate(){
+        setIsloading(true)
         const formData = {}
         
         formData.ingredients = ingredientsUpdated
@@ -99,7 +102,7 @@ export function EditPlate(){
         }
 
         if(newIngredient) {
-            return toast.error(`Clique em "+" para adicionar o ingrediente: ${newIngredient}, ou deixe o campo vázio.`);
+            return toast.warn(`Clique em "+" para adicionar o ingrediente: ${newIngredient}, ou deixe o campo vazio.`);
           }
 
 
@@ -126,6 +129,9 @@ export function EditPlate(){
         if(error.response){
                 return toast.error("Atualize alguma informação para salvar as alterações.")
             }
+        }
+        finally{
+            setIsloading(false)
         }
     }
 
@@ -309,6 +315,7 @@ export function EditPlate(){
                 Excluir Prato
             </button>
             <Button
+            isLoading={isLoading}
             onClick={() => HandleEditPlate()}
             title={"Salvar alterações"}
              />

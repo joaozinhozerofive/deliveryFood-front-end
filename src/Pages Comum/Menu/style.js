@@ -55,6 +55,12 @@ export const Container = styled.div`
     main{
         padding: 2rem;
 
+
+        .logout{
+            display: flex;
+            gap: 1rem;
+        }
+
         h2{
             margin-top: -1rem;
             padding: 2rem;

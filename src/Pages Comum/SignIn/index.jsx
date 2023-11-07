@@ -4,6 +4,7 @@ import logoFood from "../../Assets/logofood.svg"
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../hooks/auth";
+import { toast } from "react-toastify";
 
 
 export function SignIn(){
@@ -12,9 +13,23 @@ export function SignIn(){
     const [password, setPassword] = useState("");
     const {signIn} = useAuth();
 
+    const [isLoading, setIsLoading] = useState(false)
+
 
     function handleSignIn(){
-        signIn({email, password})
+        setIsLoading(true)
+
+        try{
+            if(!email || !password){
+                return toast.warn("Insira seus dados para fazer login.")
+            }
+            signIn({email, password})
+        }
+        catch{
+            return toast.error("Não foi possível fazer login")
+        }finally{
+            setIsLoading(false)
+        }
     }
 
 
@@ -44,6 +59,7 @@ export function SignIn(){
                      placeholder="No mínimo 6 caracteres"/>
                 </div>
                 <Button 
+                isLoading={isLoading}
                 type = "button"
                 onClick={handleSignIn}
                 title={"Entrar"}/>

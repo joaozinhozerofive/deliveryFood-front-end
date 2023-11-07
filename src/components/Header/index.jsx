@@ -10,6 +10,7 @@ import buttonOrder from "../../Assets/buttonOrders.svg"
 import favorites from "../../Assets/favorites.svg"
 
 import { useNavigate } from "react-router-dom"
+import { api } from "../../services/api"
 
 
 import { useAuth } from "../../hooks/auth"
@@ -18,6 +19,7 @@ import { UseCart } from "../../hooks/cart"
 
 export function Header({search}){
     const [loading, setLoading] = useState(false)
+    const [ordersLength, setOrdersLength] = useState(0)
 
     const navigation = useNavigate();
     const {user} = useAuth();
@@ -25,7 +27,29 @@ export function Header({search}){
     const {cartItemsLength} = UseCart();
 
 
+    useEffect(()=>{
 
+
+        async function fetchOrders(){
+           const response = await api.get("/orders/admin")
+   
+            const orders = response.data.filter(orders => orders.order.status === "Pendente")
+
+            const ordersLength = orders.length
+
+
+            setOrdersLength(ordersLength)
+
+            console.log(orders)
+   
+   
+       }
+   
+   
+       fetchOrders()
+   
+   }, [ordersLength])
+   
 
 
     
@@ -73,9 +97,10 @@ export function Header({search}){
 
         <div className="orders">
         <img 
+        onClick={() => navigation("/pedidos")}
         src={buttonOrder} alt="Botão de pedidos" />
         <Button
-        title={`${"0"}` }
+        title={`${ordersLength}` }
         />
         </div>
 
@@ -128,14 +153,16 @@ export function Header({search}){
         />
         </div>
 
+        <p onClick={() => navigation("/histórico-de-pedidos")} className="orderHistory">Histórico de pedidos</p>
+        <img className="favorites" onClick={() => navigation("/favorites")} src={favorites} alt="Imagem de coração sinalizando a rota para os favoritos" />
+        
         <Button
         onClick={() => navigation('/checkout')}
         className = "cart"
         icon={FiShoppingCart}
-        title={`Carrinho ( ${cartItemsLength || 0} )` }
+        title={`( ${cartItemsLength || 0} )` }
         />
 
-        <img className="favorites" onClick={() => navigation("/favorites")} src={favorites} alt="Imagem de coração sinalizando a rota para os favoritos" />
 
         <img 
         onClick={() => signOut()}

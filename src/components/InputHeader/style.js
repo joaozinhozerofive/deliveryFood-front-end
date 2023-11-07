@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { responsives } from '../../Configs';
 
 export const Container = styled.div`
-    filter: drop-shadow(0px 0px 7rem ${({theme}) => theme.COLORS.HOVER});
 
 
     >div{

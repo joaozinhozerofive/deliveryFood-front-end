@@ -4,7 +4,6 @@ import { responsives } from '../../Configs'
 
 export const Container = styled.footer`
     width: 100%;
-    margin-top: 25rem;
     background-color: ${({theme}) => theme.COLORS.BACKGROUND_700};
     display: flex;
     padding: 1rem;
@@ -12,7 +11,7 @@ export const Container = styled.footer`
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-
+    margin-top: 30%;
     .footer{
         display: flex;
         align-items: center;

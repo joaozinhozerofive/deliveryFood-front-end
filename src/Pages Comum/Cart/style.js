@@ -10,6 +10,11 @@ export const Container = styled.div`
     height: 100vh;
     font-family: 'Poppins', sans-serif;
 
+
+    p{
+        cursor: pointer;
+    }
+
     
     .total{
         padding: 1rem;
@@ -119,8 +124,8 @@ export const Container = styled.div`
            margin-left: 2rem;
         }
         .buttonPayment{
-                margin: 2rem auto;
-                width: 90%;
+                margin-top: 2rem;
+                width: 30rem;
                 font-family: 'Poppins', sans-serif;
                 padding: 1rem;
         }
@@ -131,6 +136,7 @@ export const Container = styled.div`
     }
     
     @media ${responsives.laptop}{
+
         main{
             padding-left: 10%;
             padding-right: 10%;
@@ -138,5 +144,12 @@ export const Container = styled.div`
             justify-content: space-between;
             gap: 30rem;
         }
+
     }
+    #payment{
+        .buttonPayment{
+                width: 31rem;
+        }
+
+        }
 `

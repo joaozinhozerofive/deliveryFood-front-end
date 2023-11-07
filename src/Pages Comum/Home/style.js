@@ -46,7 +46,18 @@ export const Page = styled.div`
 
     }
 
-    
+
+    .inputMobile{
+      margin-top: 11.5rem;
+
+
+      >div{
+        >div {
+          width: 100%;
+          padding: 1.4rem;
+      }
+    }
+  }
     
     .content{
         position: relative;
@@ -57,6 +68,7 @@ export const Page = styled.div`
 
     @media ${responsives.tablet}{
       padding: 1rem;
+
       >.foods{
 
       .category{
@@ -65,6 +77,17 @@ export const Page = styled.div`
 
     }
     }
+    .inputMobile{
+      margin-top: 1rem;
+
+
+      >div{
+        >div {
+          width: 100%;
+          padding: 1.4rem;
+      }
+    }
+  }
 
     @media ${responsives.laptop}{
       >.foods{
@@ -82,8 +105,9 @@ export const Page = styled.div`
           font-size: 3.5rem;
       }
     }
-    @media ${responsives.desktop}{
-
+  
+    .inputMobile{
+      display: none;
     }
     }
       

@@ -1,15 +1,23 @@
 import { Container } from "./style";
 import { Button } from "../../components/Button";
 import logoFood from "../../Assets/logofood.svg"
+
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+
 import { api } from "../../services/api";
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
+import {z} from 'zod'
+
+
 export function SignUp(){
     const navigation = useNavigate()
+
+    const [isLoading, setIsLoading] = useState(false)
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
@@ -17,13 +25,26 @@ export function SignUp(){
 
 
      function handleSignUp() {
-            if( !name || !email || !password ){
-          return toast.warning("preencha todos os campos");
-        }
+            setIsLoading(true)
 
-        if(password.length < 6){
-           return toast.error("Sua senha deve ter no mínimo 6 caracteres")
-        }
+            const emailSchema = z.string().email()
+
+            
+           
+            try{
+            if( !name || !email || !password ){
+                return toast.warning("Preencha todos os campos");
+            }
+            if(password.length < 6){
+               return toast.error("Sua senha deve ter no mínimo 6 caracteres")
+            }
+                 emailSchema.parse(email)
+           }catch (error){
+               return toast.error("Insira um email válido.")
+           }finally{
+            setIsLoading(false); 
+          }
+
 
         api.post("/users", {name, email, password})
         .then(() => {
@@ -36,9 +57,11 @@ export function SignUp(){
           if(error.response){
               toast.error(error.response.data.message);
           }
-        })
+        }).finally(() => {
+            setIsLoading(false); 
+          });
 
-        setTimeout()
+       
 
     }
 
@@ -65,7 +88,7 @@ export function SignUp(){
                 <div className="input-wrapper">
                     <p>Email</p>
                     <input 
-                    type="text" 
+                    type="email" 
                     placeholder="joaodasilva@gmail.com"
                     onChange={ (e) => setEmail(e.target.value)}
                     />
@@ -80,9 +103,11 @@ export function SignUp(){
                     />
                 </div>
                 <Button 
-               onClick={handleSignUp}
+                isLoading={isLoading}
+                onClick={handleSignUp}
                 type = "button"
                 title={"Cadastrar"}/>
+
              <button
              onClick={() => navigation("/")}
              className="signUp"
