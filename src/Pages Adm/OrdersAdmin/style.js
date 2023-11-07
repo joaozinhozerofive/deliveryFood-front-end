@@ -28,7 +28,6 @@ export const Container = styled.div`
 
 export const Page = styled.main`
     margin-top: 18rem;
-    margin-left: 2rem;
     width: 100%;
     display: flex;
     flex-direction: column;
