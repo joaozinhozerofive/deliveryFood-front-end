@@ -119,6 +119,7 @@ export const Page = styled.main`
     display: flex;
     flex-direction: column;
     text-align: center;
+    align-items: center;
     gap: 1rem;
 
     h1{
