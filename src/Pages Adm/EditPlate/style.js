@@ -23,7 +23,6 @@ animation: ${dataField} 1s cubic-bezier(0.70, 0.05, 0.55, 0.95);
 
 export const Page = styled.main`
     padding-top: 15rem;
-    padding-left: 15%;
 
     .buttonBack{
         display: flex;
