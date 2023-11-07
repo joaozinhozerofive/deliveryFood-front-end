@@ -94,7 +94,6 @@ export const Page = styled.main`
     align-items: center; 
     height: 100vh;
     width: 100vw;
-    padding-left: 10rem;
 
     main{
         display: flex;
