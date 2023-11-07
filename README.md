@@ -13,7 +13,18 @@ Nele realizei a criação do FrontEnd e do BackEnd completo da aplicação.
 ___
 
 ## 💻 Sobre
-O Food explorer é uma criação frontEnd e backEnd de um web restaurante que possui dois tipos de usuários. O comum e o administrador. O comum tem o poder, depois de cadastrado, de apenas de visualizar os pratos e filtrá-los pelo nome, enquanto o usuário administrador poderá criar e alterar pratos, além de ter acesso as demais funcionalidades do usuário comum. 
+O Food explorer é uma criação frontEnd e backEnd de um web restaurante que possui dois tipos de usuários. O comum e o administrador. O comum tem o poder, depois de cadastrado, de:
+visualizar todos os pratos criados pelo administrador; 
+fazer pedidos; 
+adicionar itens ao carrinho;
+ver o histórico de pedidos;
+entre outras funcionalidades.
+
+O administradorm, depois de cadastrado, tem o poder de: 
+Visualizar os pedidos; 
+Atualizar status dos pedidos; 
+Editar pratos;
+Criar novos pratos;
 ___
 
 
