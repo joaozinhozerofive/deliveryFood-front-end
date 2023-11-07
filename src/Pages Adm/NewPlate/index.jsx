@@ -31,6 +31,9 @@ export function NewPlate(){
 
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredient] = useState("");
+
+
+  const [isLoading, setIsLoading] = useState(false)
     
     const navigation = useNavigate();
 
@@ -41,7 +44,21 @@ export function NewPlate(){
 
 
     async function HandleAddPlate(){
-        if(!image) {
+        setIsLoading(true)
+        
+        const formData = new FormData();  
+        formData.append("plateImg", image);
+        formData.append("name", name);
+        formData.append("category", category);
+        formData.append("price", price);
+        formData.append("description", description);
+
+        ingredients.map(ingredient => (
+         formData.append("ingredients", ingredient)
+    ))
+
+    try{
+          if(image.length === 0) {
             return toast.error("Faça upload da foto do prato");
           } 
       
@@ -69,35 +86,22 @@ export function NewPlate(){
             return toast.error("Descrição é obrigatória");
           }
 
-          
+          await api.post("/plates", formData)
+          toast.success("Prato adicionado com sucesso!");
 
-        const formData = new FormData();  
-        formData.append("plateImg", image);
-        formData.append("name", name);
-        formData.append("category", category);
-        formData.append("price", price);
-        formData.append("description", description);
-
-        ingredients.map(ingredient => (
-         formData.append("ingredients", ingredient)
-    ))
-
-    await api.post("/plates", formData)
-      .then( () => {
-        toast.success("Prato adicionado com sucesso!");
-
-        setTimeout( () => {
-          navigation("/")
-        }, 1000)
-      })
-      .catch((error) => {
-        if (error.response) {
-          return toast.error(error.response.data.message);
-        } else {
-          return toast.error("Erro ao criar o prato!");
-        }
-      })
+          setTimeout( () => {
+            navigation("/")
+          }, 1000)
+    }catch(error) {
+          if (error.response) {
+            return toast.error(error.response.data.message);
+          } else {
+            return toast.error("Erro ao criar o prato");
+          }
+    }finally{
+      setIsLoading(false)
     }
+  }
 
 
     function handleNewIngredient() {
@@ -239,6 +243,7 @@ export function NewPlate(){
 
             <div className="save">
             <Button
+            isLoading={isLoading}
             type = "button"
             onClick={() => HandleAddPlate()}
             className = "save"
