@@ -78,6 +78,10 @@ function CartProvider({children}){
 
     useEffect(() => {
     localStorage.setItem("@foodExplorer:cart", JSON.stringify(cartItems))
+    const cartItemsString = localStorage.getItem('@foodExplorer:cart')
+    const cartLength = JSON.parse(cartItemsString) || []
+
+    setCartItemsLength(cartLength.length)    
   }, [cartItems]);
 
 
