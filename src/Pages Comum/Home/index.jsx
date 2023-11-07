@@ -46,7 +46,7 @@ export function Home(){
 
 
         fetchDishes();
-    }, [search])
+    }, [search, user])
 
     return(
 
