@@ -229,8 +229,7 @@ label{
     
     .ingredients{
         >#ingredients{
-            flex-wrap: nowrap;
-            padding: 1rem;
+            display: none;
 
             .tags{
                 font-size: 1.2rem;
