@@ -39,7 +39,8 @@ export function OrdersAdmin({plate, ...rest}){
             } else{
                 toast.error("Não foi possível editar o status deste pedido.")
             }
-        }
+        }  
+
       }
 
 
