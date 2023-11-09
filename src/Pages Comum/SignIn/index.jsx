@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 
 export function SignIn(){
     const navigation = useNavigate()
-    const [email, setEmail] = useState("");
+    const [email, setEmail] = useState("calma");
     const [password, setPassword] = useState("");
     const {signIn} = useAuth();
 
@@ -49,6 +49,7 @@ export function SignIn(){
                     <input
                     onChange={e => setEmail(e.target.value)}
                      type="text" 
+                     value={email}
                      placeholder="joaodasilva@gmail.com"/>
                 </div>
                 <div className="input-wrapper">
