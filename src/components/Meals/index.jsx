@@ -161,7 +161,6 @@ export function Meals ({plates, ...rest}) {
                navigation={true}
                className="mySwiper"
                   >
-   
                {plates && plates.map(plate => (
                 
                 <SwiperSlide className="mealsActive not-admin" key={String(plate.plate_id)} >
