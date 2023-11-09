@@ -25,14 +25,14 @@ export function SignUp(){
 
 
      function handleSignUp() {
-            
+            setIsLoading(true)
 
             const emailSchema = z.string().email()
 
             
            
             try{
-                setIsLoading(true)
+                
             if( !name || !email || !password ){
                 return toast.warning("Preencha todos os campos");
             }
