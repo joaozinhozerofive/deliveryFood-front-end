@@ -48,10 +48,7 @@ function CartProvider({children}){
           }
         }
 
-        const cartItemsString = localStorage.getItem('@foodExplorer:cart')
-        const cartLength = JSON.parse(cartItemsString) || []
-
-        setCartItemsLength(cartLength.length)
+        
       }
 
       
@@ -63,10 +60,6 @@ function CartProvider({children}){
         setCartItems(newItems);
         localStorage.setItem('@foodExplorer:cart', JSON.stringify(newItems))
 
-        const cartItemsString = localStorage.getItem('@foodExplorer:cart')
-        const cartLength = JSON.parse(cartItemsString) || []
-
-        setCartItemsLength(cartLength.length)
 
       }
 
@@ -74,6 +67,15 @@ function CartProvider({children}){
         setCartItems([])
         localStorage.removeItem('@foodExplorer:cart')
       }
+
+
+    useEffect(() => {
+    localStorage.setItem("@foodExplorer:cart", JSON.stringify(cartItems))
+    const cartItemsString = localStorage.getItem('@foodExplorer:cart')
+    const cartLength = JSON.parse(cartItemsString) || []
+
+    setCartItemsLength(cartLength.length)    
+  }, [cartItems]);
 
 
       return (
