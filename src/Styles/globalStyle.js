@@ -43,7 +43,7 @@ button{
 
 button, a, img{
         cursor: pointer;
-        transition: filter 0.2s;
+        transition: filter 0.5s;
 }
     button:hover, a:hover{
         filter: brightness(0.7);
