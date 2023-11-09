@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 
 export function SignIn(){
     const navigation = useNavigate()
-    const [email, setEmail] = useState("calma");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const {signIn} = useAuth();
 
