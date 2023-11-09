@@ -18,19 +18,21 @@ const InputField = keyframes`
 
 export const Container = styled.div`
 
+height: 100%;
 
 
-    .newFooter{
-        margin-top: 30rem;
-    }
+.newFooter{
+    margin-top: 20rem;
+}
 
+
+    
 
 `
 
 
 export const Page = styled.main`
     margin-top: 18rem;
-    height: 80vh;
     width: 100%;
     display: flex;
     flex-direction: column;

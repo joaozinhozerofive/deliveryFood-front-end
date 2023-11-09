@@ -43,7 +43,6 @@ export const Page = styled.main`
     }
 
     .tableDesktop{
-        margin-bottom: 80rem;
         display: none;
     }
 

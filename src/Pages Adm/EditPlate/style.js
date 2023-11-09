@@ -22,7 +22,10 @@ animation: ${dataField} 1s cubic-bezier(0.70, 0.05, 0.55, 0.95);
 `
 
 export const Page = styled.main`
-    padding-top: 15rem;
+    width: 160rem;
+    max-width: 100%;
+    padding:15rem 0 0 2rem;
+    margin: 0 auto;
 
     .buttonBack{
         display: flex;
@@ -46,6 +49,19 @@ export const Page = styled.main`
         font-size: 2.5rem;
     }
 
+    .save{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 2rem;
+        width: 100%;
+        button{
+            background-color: ${({theme}) => theme.COLORS.RED_700};
+            padding: 1rem;
+            
+        }
+    }
+
     .delete{
         display: flex;
         flex-direction: column;
@@ -67,16 +83,10 @@ export const Page = styled.main`
         }
     }
     
-@media ${responsives.mobileL}{
-        .delete{
-            max-width: 90%;
-        }
-    }
 
 
-@media (min-width: 900px){
-    max-width: 100%;
-}
+
+
 
 
 @media ${responsives.laptopL}{
@@ -93,11 +103,10 @@ export const Page = styled.main`
 
     
 
-    .delete{
-        flex-direction: row;
-        justify-content: end;
-        width: 100%;
+    .save{
+        display: flex;
         button{
+            display: flex;
             background-color: ${({theme}) => theme.COLORS.RED_700};
             padding: 1.5rem;
             font-size: 2rem;
@@ -120,20 +129,22 @@ export const Page = styled.main`
             font-size: 5rem;
         }
 
-        .delete{
+        .save{
         button{
             padding: 2rem;
             font-size: 2.5rem;
         }
     }
-
-
-
         
 }}
 
 `
 export const Form = styled.form`
+
+
+@media ${responsives.mobileL}{
+    padding-right: 1rem ;
+}
 
 p{
         font-size: 1.4rem;
@@ -177,9 +188,7 @@ p{
     textarea{
         background-color: ${({theme}) => theme.COLORS.BACKGROUND_600};
     }
-
     
-
     #event-category{
         width: 100%;
         border: none;
@@ -199,6 +208,7 @@ p{
         gap: 1rem;
         padding: 0.8rem;
         width: 100%;
+
         .tags{
             text-align: center;
         }
@@ -219,13 +229,10 @@ label{
        } 
 }
 
-@media ${responsives.mobileL}{
-    max-width: 90%;
-}
+
 
 
 @media (min-width: 900px){
-    padding-left: -15rem;
     
     .ingredients{
         >#ingredients{
@@ -235,6 +242,8 @@ label{
             .tags{
                 font-size: 1.2rem;
             }
+
+            
         }
 
     }
@@ -249,7 +258,6 @@ label{
             .tags{
                 font-size: 1.5rem;
             }
-
             .tags::placeholder{
                 font-size: 2.5rem;
             }

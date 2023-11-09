@@ -22,7 +22,10 @@ animation: ${dataField} 1s cubic-bezier(0.70, 0.05, 0.55, 0.95);
 `
 
 export const Page = styled.main`
-    padding-top: 15rem;
+    width: 160rem;
+    max-width: 100%;
+    padding:15rem 0 0 2rem;
+    margin: 0 auto;
 
     .buttonBack{
         display: flex;
@@ -62,9 +65,7 @@ export const Page = styled.main`
 
 
 
-@media (min-width: 900px){
-    max-width: 100%;
-}
+
 
 
 @media ${responsives.laptopL}{
@@ -118,6 +119,11 @@ export const Page = styled.main`
 
 `
 export const Form = styled.form`
+
+
+@media ${responsives.mobileL}{
+    padding-right: 1rem ;
+}
 
 p{
         font-size: 1.4rem;
@@ -202,13 +208,10 @@ label{
        } 
 }
 
-@media ${responsives.mobileL}{
-    max-width: 90%;
-}
+
 
 
 @media (min-width: 900px){
-    padding-left: -15rem;
     
     .ingredients{
         >#ingredients{

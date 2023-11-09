@@ -84,21 +84,18 @@ export function EditPlate(){
         const formData = {}
         
         formData.ingredients = ingredientsUpdated
+        formData.name = nameData
+        formData.category = categoryData
+        formData.price = priceData
+        formData.description  = descriptionData
 
-        if(name){
-            formData.name = name;
+
+        if(ingredientsUpdated.length < 2){
+            return toast.warn('Adicione pelo menos dois ingredientes')
         }
 
-        if(category){
-            formData.category = category;
-        }
-
-        if(price){
-            formData.price = price;
-        }
-
-        if(description){
-            formData.description = description;
+        if(!nameData || !categoryData || !priceData || !descriptionData){
+            return toast.error('Por favor, preencha todos os campos corretamente.')
         }
 
         if(newIngredient) {
@@ -115,10 +112,7 @@ export function EditPlate(){
             
             await api.patch(`/plates/imgPlates/${params.plate_id}`, fileUploadForm)
            }
-         await api.put(`/plates/${params.plate_id}`, formData)
-
-         
-            
+           await api.put(`/plates/${params.plate_id}`, formData)
             toast.success("Prato atualizado com sucesso!")
 
             setTimeout(() => {
@@ -224,10 +218,11 @@ export function EditPlate(){
                     <p>Nome</p>
 
                     <input 
-                    onChange={ e => setName(e.target.value)}
+                    onChange={ e => setNameData(e.target.value)}
+                    value={nameData}
                     id="namePlate" 
                     type="text" 
-                    placeholder={ nameData ? nameData : "Ex.: Salada Ceasar"}/>
+                    />
 
 
                 <div className="category">
@@ -235,7 +230,7 @@ export function EditPlate(){
                     <p>Categoria</p>
 
                      <select 
-                      onChange={ e => setCategory(e.target.value)}
+                      onChange={ e => setCategoryData(e.target.value)}
                       id="event-category">
 
                     <option value={ categoryData ? categoryData : "Padrão"}>{ categoryData ? categoryData : "Padrão"}</option>
@@ -286,10 +281,11 @@ export function EditPlate(){
                          <p>Preço</p>
 
                          <input 
-                         onChange={(e) => setPrice(e.target.value)}
+                         onChange={(e) => setPriceData(e.target.value)}
                          id="price" 
                          type="text" 
-                         placeholder={priceData ? priceData : "0,00"} />
+                         value={priceData}
+                          />
 
                     </div>
                 </div>
@@ -299,8 +295,8 @@ export function EditPlate(){
                     <p>Descrição</p>
 
                 <Textarea
-                onChange = {(e) => setDescription(e.target.value)}
-                placeholder = {descriptionData ? descriptionData : "Fale brevemente sobre o prato, seus ingredientes e composição"}
+                onChange = {(e) => setDescriptionData(e.target.value)}
+                value = {descriptionData}
                  />
 
                 </div>
