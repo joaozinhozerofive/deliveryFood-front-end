@@ -32,6 +32,7 @@ height: 100%;
 
 
 export const Page = styled.main`
+    padding-left: 1rem;
     margin-top: 18rem;
     width: 100%;
     display: flex;
